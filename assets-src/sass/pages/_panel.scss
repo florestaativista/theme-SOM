@@ -9,4 +9,13 @@
             background: transparent;
         }
     }
+
+    .user-management {
+        border-bottom-right-radius: $som-border-radius-panel;
+        border-top-right-radius: $som-border-radius-panel;
+
+        &__title {
+            background: transparent;
+        }
+    }
 }
