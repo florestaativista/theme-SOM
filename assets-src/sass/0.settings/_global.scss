@@ -1,0 +1,14 @@
+body {
+    background-color: var(--mc-primary-500) !important;
+}
+
+.messages + * {
+    background-color: var(--mc-white);
+    border-radius: $som-border-radius-panel;
+    margin: size(32) auto;
+    max-width: size(1200);
+}
+
+.mc-breadcrumb {
+    display: none;
+}

@@ -1,8 +1,23 @@
-.entity-header__single--content {
+.main-app.single-1, .main-app.single-2 {
 
-    .share {
+    & > .tabs-component {
+        background-color: var(--mc-white);
+        border-bottom-left-radius: $som-border-radius-panel;
+        border-bottom-right-radius: $som-border-radius-panel;
+    }
+}
 
-        .button {
+.entity-actions {
+    background-color: var(--mc-primary-500);
+}
+
+.entity-header {
+    border-top-left-radius: $som-border-radius-panel;
+    border-top-right-radius: $som-border-radius-panel;
+
+    &__single--content {
+
+        .share .button {
             color: var(--mc-primary-500);
 
             .iconify {

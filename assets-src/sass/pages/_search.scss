@@ -1,3 +1,16 @@
-.search__header {
-    background-color: var(--mc-white);
+.search {
+
+    &__header {
+        background-color: var(--mc-white);
+        border-top-left-radius: $som-border-radius-panel;
+        border-top-right-radius: $som-border-radius-panel;
+    }
+
+    & > .tabs-component {
+
+        .tabs-component__panels {
+            border-bottom-left-radius: $som-border-radius-panel;
+            border-bottom-right-radius: $som-border-radius-panel;
+        }
+    }
 }

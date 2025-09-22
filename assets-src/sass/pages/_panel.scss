@@ -1,0 +1,12 @@
+.controller-panel {
+    background: var(--mc-primary-500) !important;
+
+    .panel-home {
+        border-bottom-right-radius: $som-border-radius-panel;
+        border-top-right-radius: $som-border-radius-panel;
+
+        &__header {
+            background: transparent;
+        }
+    }
+}

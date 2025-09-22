@@ -73,12 +73,18 @@ $border-radius-pill: 0.5rem;
 // $shadow-lv-1-up: 0px -4px 8px rgba(0, 0, 0, 0.16);
 
 @import '../../../BaseV2/assets-src/sass/theme-BaseV2';
+
+// SOM-specific variables
+$som-border-radius-panel: 2rem;
+
 @import '0.settings/typography';
+@import '0.settings/global';
 
 @import 'components/tabs';
 @import 'components/tag-list';
 
 @import 'layouts/main-header';
 
+@import 'pages/panel';
 @import 'pages/search';
 @import 'pages/single-entity';
