@@ -1,0 +1,24 @@
+.tabs-component {
+
+    &__button {
+
+        &--active {
+
+            a {
+                color: var(--mc-primary-500) !important;
+
+                span {
+                    color: inherit !important;
+                }
+
+                .iconify {
+                    color: inherit !important;
+                }
+            }
+
+            &::after {
+                background-color: var(--mc-primary-500) !important;
+            }
+        }
+    }
+}

@@ -57,9 +57,9 @@ $low-700: #000000;
 // $font-headings: 'Open Sans', sans-serif;
 
 // // Borders radius
-// $border-radius-xs: 4px;
-// $border-radius-sm: 8px;
-// $border-radius-pill: 64px;
+$border-radius-xs: 0.25rem;
+$border-radius-sm: 0.5rem;
+$border-radius-pill: 0.5rem;
 
 // // Borders
 // $border-hairline: 1px solid;
@@ -75,6 +75,10 @@ $low-700: #000000;
 @import '../../../BaseV2/assets-src/sass/theme-BaseV2';
 @import '0.settings/typography';
 
+@import 'components/tabs';
+@import 'components/tag-list';
+
 @import 'layouts/main-header';
 
 @import 'pages/search';
+@import 'pages/single-entity';
