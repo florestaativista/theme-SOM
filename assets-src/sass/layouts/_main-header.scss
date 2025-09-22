@@ -1,5 +1,18 @@
 .main-header {
 
+    &__content {
+        justify-content: start;
+        max-width: size(1232);
+    }
+
+    .mc-header-logo {
+        width: auto;
+    }
+
+    .mc-header-menu {
+        flex: 1;
+    }
+
     .mc-header-menu--item {
 
         .icon {
@@ -8,6 +21,82 @@
 
         .label {
             margin-top: 0;
+        }
+
+        &:hover {
+
+            .label {
+                color: var(--mc-primary-500) !important;
+            }
+        }
+    }
+}
+
+// Define comportamento dos itens do menu de entidades (em todo o sistema)
+.action {
+    &-index {
+        .mc-header-menu--item.home{
+            .icon {
+                background-color: var(--mc-primary-500);
+            }
+            .label {
+                color: var(--mc-primary-500);
+            }
+        }
+    }
+
+    &-projects {
+        .mc-header-menu--item.project {
+            .icon {
+                background-color: var(--mc-primary-500);
+            }
+            .label {
+                color: var(--mc-primary-500);
+            }
+        }
+    }
+
+    &-spaces {
+        .mc-header-menu--item.space {
+            .icon {
+                background-color: var(--mc-primary-500);
+            }
+            .label {
+                color: var(--mc-primary-500);
+            }
+        }
+    }
+
+    &-events {
+        .mc-header-menu--item.event {
+            .icon {
+                background-color: var(--mc-primary-500);
+            }
+            .label {
+                color: var(--mc-primary-500);
+            }
+        }
+    }
+
+    &-agents {
+        .mc-header-menu--item.agent {
+            .icon {
+                background-color: var(--mc-primary-500);
+            }
+            .label {
+                color: var(--mc-primary-500);
+            }
+        }
+    }
+
+    &-opportunities {
+        .mc-header-menu--item.opportunity {
+            .icon {
+                background-color: var(--mc-primary-500);
+            }
+            .label {
+                color: var(--mc-primary-500);
+            }
         }
     }
 }
