@@ -1,0 +1,16 @@
+.field {
+
+    input:not([type=checkbox], [type=radio]), textarea, select {
+        background-color: var(--mc-white);
+        border: none;
+        @include som-valley(4);
+    }
+
+    input[type=checkbox], input[type=radio] {
+        accent-color: var(--mc-primary-500);
+    }
+
+    &__length {
+        padding-inline: size(8);
+    }
+}

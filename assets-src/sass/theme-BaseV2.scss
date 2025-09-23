@@ -7,7 +7,7 @@ $gray-100: #E7EFF2;
 $gray-300: #DBDAE4;
 $gray-700: #575561;
 $warning: #FF3535;
-$white: #FFFFFF;
+$white: #DDD;
 
 // Default lightness deltas
 $lightness-300: 25%;
@@ -59,7 +59,7 @@ $low-700: #000000;
 // // Borders radius
 $border-radius-xs: 0.25rem;
 $border-radius-sm: 0.5rem;
-$border-radius-pill: 0.5rem;
+$border-radius-pill: 1rem;
 
 // // Borders
 // $border-hairline: 1px solid;
@@ -81,7 +81,9 @@ $som-border-radius-panel: 2rem;
 @import '0.settings/typography';
 @import '0.settings/global';
 
+@import 'components/button';
 @import 'components/card';
+@import 'components/form';
 @import 'components/tab';
 @import 'components/tag-list';
 

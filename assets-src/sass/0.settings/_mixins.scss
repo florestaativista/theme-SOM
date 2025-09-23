@@ -1,4 +1,9 @@
-@mixin som-shadow($factor) {
+@mixin som-hill($factor) {
     box-shadow: #{$factor * 1px} #{$factor * 1px} #{$factor * 2px} #bbb,
                 #{$factor * -1px} #{$factor * -1px} #{$factor * 2px} #f7f7f7;
+}
+
+@mixin som-valley($factor) {
+    box-shadow: inset #{$factor * 1px} #{$factor * 1px} #{$factor * 2px} #bbb,
+                inset #{$factor * -1px} #{$factor * -1px} #{$factor * 2px} #f7f7f7;
 }

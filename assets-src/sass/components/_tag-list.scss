@@ -5,4 +5,10 @@
         color: var(--mc-low-500) !important;
     }
 
+    .tabs-component & {
+
+        &__tag {
+            @include som-hill(4);
+        }
+    }
 }
