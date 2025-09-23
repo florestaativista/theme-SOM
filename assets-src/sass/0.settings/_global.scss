@@ -5,7 +5,7 @@ body {
 .messages + * {
     background-color: var(--mc-white);
     border-radius: $som-border-radius-panel;
-    margin: size(32) auto;
+    margin: size(32) auto !important;
     max-width: size(1200);
 }
 
