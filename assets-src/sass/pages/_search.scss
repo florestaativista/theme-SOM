@@ -9,8 +9,20 @@
     & > .tabs-component {
 
         .tabs-component__panels {
+            background-color: var(--mc-white);
             border-bottom-left-radius: $som-border-radius-panel;
             border-bottom-right-radius: $som-border-radius-panel;
+
+            .entity-card {
+                @include som-shadow(10);
+            }
         }
+    }
+}
+
+.search-filter {
+
+    &__filter {
+        @include som-shadow(10);
     }
 }

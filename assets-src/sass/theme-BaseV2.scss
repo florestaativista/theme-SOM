@@ -77,10 +77,12 @@ $border-radius-pill: 0.5rem;
 // SOM-specific variables
 $som-border-radius-panel: 2rem;
 
+@import '0.settings/mixins';
 @import '0.settings/typography';
 @import '0.settings/global';
 
-@import 'components/tabs';
+@import 'components/card';
+@import 'components/tab';
 @import 'components/tag-list';
 
 @import 'layouts/main-header';

@@ -1,0 +1,4 @@
+@mixin som-shadow($factor) {
+    box-shadow: #{$factor * 1px} #{$factor * 1px} #{$factor * 2px} #bbb,
+                #{$factor * -1px} #{$factor * -1px} #{$factor * 2px} #f7f7f7;
+}

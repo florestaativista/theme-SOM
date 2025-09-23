@@ -1,5 +1,9 @@
 .tabs-component {
 
+    &__panels {
+        background-color: var(--mc-white);
+    }
+
     &__button {
 
         &--active {
