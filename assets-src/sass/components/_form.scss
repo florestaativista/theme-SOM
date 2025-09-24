@@ -10,6 +10,38 @@
         @include som-down-shadow(4);
     }
 
+    input[type=checkbox] {
+        appearance: none;
+        background-color: var(--mc-primary-white);
+        border: none;
+        border-radius: size(10);
+        box-shadow: inset 0 size(3) size(6) 0 rgba(black, 0.25);
+        height: size(20);
+        position: relative;
+        width: size(32);
+
+        &::before {
+            background-color: white;
+            border-radius: 50%;
+            content: '';
+            height: size(14);
+            left: size(3);
+            position: absolute;
+            top: size(3);
+            width: size(14);
+            transition: all 0.3s ease-in-out;
+        }
+
+        &:checked {
+            background-color: var(--mc-primary-500);
+
+            &::before {
+                left: unset;
+                right: size(2);
+            }
+        }
+    }
+
     &__length {
         padding-inline: size(8);
     }
