@@ -42,9 +42,24 @@
         }
     }
 
+    &__checkbox {
+        grid-template-columns: size(32) 1fr;
+    }
+
     &__length {
         padding-inline: size(8);
     }
+}
+
+.input__checkboxLabel {
+
+    input[type=checkbox] {
+        border: none !important;
+        border-radius: size(10) !important;
+        height: size(20) !important;
+        width: size(32) !important;
+    }
+
 }
 
 .mc-select {
