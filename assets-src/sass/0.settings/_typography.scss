@@ -1,53 +1,44 @@
 @font-face {
     font-display: swap;
-    font-family: 'Space Grotesk';
+    font-family: 'MuseoModerno';
+    font-style: normal;
+    font-weight: bold;
+    src: url('/assets/custom-fonts/MuseoModerno-Bold.woff') format('woff'),
+         url('/assets/custom-fonts/MuseoModerno-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'MuseoModerno';
+    font-style: italic;
+    font-weight: bold;
+    src: url('/assets/custom-fonts/MuseoModerno-BoldItalic.woff') format('woff'),
+         url('/assets/custom-fonts/MuseoModerno-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Onest';
     font-style: normal;
     font-weight: normal;
-    src: url('/assets/custom-fonts/SpaceGrotesk-Regular.ttf') format('ttf'),
-         url('/assets/custom-fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+    src: url('/assets/fonts/Onest-Regular.woff') format('woff'),
+         url('/assets/fonts/Onest-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-display: swap;
-    font-family: 'Degular Display';
-    font-style: normal;
-    font-weight: bold;
-    src: url('/assets/custom-fonts/Degular Display Black.otf') format('otf'),
-         url('/assets/custom-fonts/Degular Display Black.otf')format('truetype');
-}
-
-@font-face {
-    font-display: swap;
-    font-family: 'Open Sans';
+    font-family: 'Onest';
     font-style: normal;
     font-weight: 600;
-    src: url('/assets/fonts/OpenSans-Semibold-webfont.woff') format('woff'),
-         url('/assets/fonts/OpenSans-Semibold-webfont.ttf') format('truetype');
+    src: url('/assets/fonts/Onest-SemiBold.woff') format('woff'),
+         url('/assets/fonts/Onest-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
     font-display: swap;
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: 600;
-    src: url('/assets/fonts/OpenSans-SemiboldItalic-webfont.woff') format('woff'),
-         url('/assets/fonts/OpenSans-SemiboldItalic-webfont.ttf') format('truetype');
-}
-
-@font-face {
-    font-display: swap;
-    font-family: 'Open Sans';
+    font-family: 'Onest';
     font-style: normal;
     font-weight: bold;
-    src: url('/assets/fonts/OpenSans-Bold-webfont.woff') format('woff'),
-         url('/assets/fonts/OpenSans-Bold-webfont.ttf') format('truetype');
-}
-
-@font-face {
-    font-display: swap;
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: bold;
-    src: url('/assets/fonts/OpenSans-BoldItalic-webfont.woff') format('woff'),
-         url('/assets/fonts/OpenSans-BoldItalic-webfont.ttf') format('truetype');
+    src: url('/assets/fonts/Onest-Bold.woff') format('woff'),
+         url('/assets/fonts/Onest-Bold.ttf') format('truetype');
 }

@@ -2,6 +2,10 @@ body {
     background-color: var(--mc-primary-500) !important;
 }
 
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
 .messages + * {
     background-color: var(--mc-white);
     border-radius: $som-border-radius-panel;
