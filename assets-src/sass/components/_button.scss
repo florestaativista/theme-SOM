@@ -1,6 +1,6 @@
 .button {
 
-    &:not(.button--text) {
+    &:not(&--text, &--primary-outline, &--secondary-outline) {
         @include som-button-shadow;
     }
 }
