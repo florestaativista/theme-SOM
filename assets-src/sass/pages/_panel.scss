@@ -45,7 +45,7 @@
 }
 
 .panel__main {
-    background-color: transparent;
+    background-color: var(--mc-white);
     border-radius: $som-border-radius-panel;
     margin: 20px;
     min-height: calc(100% - 40px);
@@ -53,5 +53,9 @@
 
     .tabs-component__panels {
         background-color: var(--mc-white);
+    }
+
+    .messages + & {
+        box-shadow: none;
     }
 }
