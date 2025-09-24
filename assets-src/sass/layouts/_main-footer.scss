@@ -1,0 +1,12 @@
+.main-footer {
+
+    &__content {
+
+        &--links-group {
+
+            li:first-child a {
+                color: var(--mc-gray-500);
+            }
+        }
+    }
+}
