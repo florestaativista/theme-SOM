@@ -21,8 +21,8 @@
     font-family: 'Onest';
     font-style: normal;
     font-weight: normal;
-    src: url('/assets/fonts/Onest-Regular.woff') format('woff'),
-         url('/assets/fonts/Onest-Regular.ttf') format('truetype');
+    src: url('/assets/custom-fonts/Onest-Medium.woff') format('woff'),
+         url('/assets/custom-fonts/Onest-Medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -30,8 +30,8 @@
     font-family: 'Onest';
     font-style: normal;
     font-weight: 600;
-    src: url('/assets/fonts/Onest-SemiBold.woff') format('woff'),
-         url('/assets/fonts/Onest-SemiBold.ttf') format('truetype');
+    src: url('/assets/custom-fonts/Onest-SemiBold.woff') format('woff'),
+         url('/assets/custom-fonts/Onest-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -39,6 +39,6 @@
     font-family: 'Onest';
     font-style: normal;
     font-weight: bold;
-    src: url('/assets/fonts/Onest-Bold.woff') format('woff'),
-         url('/assets/fonts/Onest-Bold.ttf') format('truetype');
+    src: url('/assets/custom-fonts/Onest-Bold.woff') format('woff'),
+         url('/assets/custom-fonts/Onest-Bold.ttf') format('truetype');
 }
