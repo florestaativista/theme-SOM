@@ -75,6 +75,10 @@
         grid-template-columns: size(20) 1fr;
     }
 
+    &__error {
+        padding-top: size(8);
+    }
+
     &__length {
         padding-inline: size(8);
     }
@@ -105,4 +109,11 @@
     background-color: var(--mc-white);
     border: none;
     @include som-down-shadow(4);
+}
+
+.verified {
+
+    &::after {
+        @include som-icon-shadow(var(--mc-success-500));
+    }
 }
