@@ -1,26 +1,55 @@
 .controller-panel {
     background: var(--mc-primary-500) !important;
 
+    .panel__sidebar {
+        border: none;
+    }
+
     .panel-home {
-        border-bottom-right-radius: $som-border-radius-panel;
-        border-top-right-radius: $som-border-radius-panel;
+        background-color: transparent;
 
         &__header {
             background: transparent;
         }
+
+        &__tabs {
+
+            .tabs-component {
+
+                &__header, &__panels {
+                    background-color: transparent;
+                }
+            }
+
+            .tab-component {
+                background-color: transparent;
+            }
+        }
     }
 
     .user-management {
+        background-color: transparent;
         border-bottom-right-radius: $som-border-radius-panel;
         border-top-right-radius: $som-border-radius-panel;
 
         &__title {
             background: transparent;
         }
+
+        .user-mail__account-config, .user-accepted-terms__privacy--accept {
+            background-color: var(--mc-white);
+            border-radius: 10px;
+            @include som-up-shadow(10);
+        }
     }
 }
 
 .panel__main {
+    background-color: transparent;
+    border-radius: $som-border-radius-panel;
+    margin: 20px;
+    min-height: calc(100% - 40px);
+    @include som-up-shadow(20);
 
     .tabs-component__panels {
         background-color: var(--mc-white);

@@ -26,5 +26,9 @@
         background-color: var(--mc-white);
         border-radius: size(16);
         @include som-up-shadow(10);
+
+        &--close {
+            box-shadow: none !important;
+        }
     }
 }

@@ -1,6 +1,6 @@
 .button {
 
-    .tabs-component & {
-        @include som-up-shadow(4);
+    &:not(.button--text) {
+        @include som-button-shadow;
     }
 }

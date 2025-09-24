@@ -8,7 +8,7 @@
     .tabs-component & {
 
         &__tag {
-            @include som-up-shadow(4);
+            @include som-button-shadow;
         }
     }
 }

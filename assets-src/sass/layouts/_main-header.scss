@@ -1,7 +1,6 @@
 .main-header {
 
     &__content {
-        justify-content: start;
         max-width: size(1232);
     }
 
@@ -40,6 +39,15 @@
                 height: size(24);
             }
         }
+    }
+
+    .logIn {
+        background-color: var(--mc-primary-500);
+        border-radius: $border-radius-sm;
+        font-size: size(16);
+        color: white;
+        padding-block: size(12);
+        @include som-button-shadow;
     }
 }
 
