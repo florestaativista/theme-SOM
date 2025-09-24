@@ -1,6 +1,6 @@
 .button {
 
     .tabs-component & {
-        @include som-hill(4);
+        @include som-up-shadow(4);
     }
 }

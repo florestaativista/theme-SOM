@@ -8,7 +8,7 @@
     .tabs-component & {
 
         &__tag {
-            @include som-hill(4);
+            @include som-up-shadow(4);
         }
     }
 }

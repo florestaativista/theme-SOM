@@ -7,7 +7,7 @@
     input:not([type=checkbox], [type=radio]), textarea, select {
         background-color: var(--mc-white);
         border: none;
-        @include som-valley(4);
+        @include som-down-shadow(4);
     }
 
     &__length {
@@ -21,12 +21,12 @@
     &__selected-option, &__options {
         background-color: var(--mc-white);
         border: none;
-        @include som-valley(4);
+        @include som-down-shadow(4);
     }
 }
 
 .entity-table__search-input {
     background-color: var(--mc-white);
     border: none;
-    @include som-valley(4);
+    @include som-down-shadow(4);
 }

@@ -14,7 +14,7 @@
             border-bottom-right-radius: $som-border-radius-panel;
 
             .entity-card {
-                @include som-hill(10);
+                @include som-up-shadow(10);
             }
         }
     }
@@ -25,6 +25,6 @@
     &__filter {
         background-color: var(--mc-white);
         border-radius: size(16);
-        @include som-hill(10);
+        @include som-up-shadow(10);
     }
 }
