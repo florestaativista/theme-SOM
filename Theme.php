@@ -16,9 +16,14 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         $app = App::i();
 
-        if ($app->auth->isUserAuthenticated() && $app->user->validationErrors) {
-            $app->redirect($app->user->profile->editUrl);
-        }
+        $app->hook('auth.successful', function () use ($app) {
+            if ($app->auth->isUserAuthenticated()) {
+                $profile = $app->user->profile;
+                if ($profile->validationErrors) {
+                    $app->redirect($profile->editUrl);
+                }
+            }
+        });
 
         $this->assetManager->publishFolder('custom-fonts');
         $app->hook('mapasculturais.body:after', function() use ($app) {
