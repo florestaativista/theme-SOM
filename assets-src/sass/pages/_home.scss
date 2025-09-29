@@ -5,7 +5,7 @@
         background-color: var(--mc-primary-500);
 
         img {
-            aspect-ratio: 2 / 1;
+            aspect-ratio: 9 / 4;
             object-fit: cover;
             object-position: top;
             width: 100%;
@@ -21,20 +21,46 @@
     }
 
     &__hero {
-        background: linear-gradient(transparent, var(--mc-primary-500) 50%, var(--mc-primary-500));
-        color: white;
-        font-size: size(32);
-        line-height: 1;
+        background: linear-gradient(transparent, var(--mc-primary-500) size(64), var(--mc-primary-500));
         margin-top: size(-64);
         padding: size(32);
-        text-align: center;
         position: relative;
         width: 100%;
 
+        p {
+            color: white;
+            font-family: var(--mc-font-body);
+            font-size: size(32);
+            line-height: 1.35;
+            margin: auto;
+            max-width: size(768);
+            text-align: center;
+
+            &:first-child {
+                font-weight: bold;
+            }
+        }
+
         @include mobile {
-            font-size: size(24);
             margin-top: size(-48);
             padding: size(24);
+
+            p {
+                font-size: size(24);
+                line-height: 1.25;
+            }
+        }
+    }
+
+    &__hero-button {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: size(64) size(32);
+
+        a.button--large {
+            width: fit-content;
+            @include som-button-large-shadow(var(--mc-primary-700));
         }
     }
 }
