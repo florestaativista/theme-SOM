@@ -17,7 +17,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         $app = App::i();
 
-        $app->hook('auth.successful', function () use ($app) {
+        $app->hook('controller(<<*>>).requireAuthentication', function () use ($app) {
             if ($app->auth->isUserAuthenticated()) {
                 $profile = $app->user->profile;
                 if ($profile->validationErrors) {
