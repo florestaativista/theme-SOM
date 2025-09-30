@@ -1,3 +1,9 @@
+<?php
+$this->import("
+    home-opportunities
+");
+?>
+
 <div></div>
 
 <div class="som-home">
@@ -12,3 +18,5 @@
         </div>
     </div>
 </div>
+
+<home-opportunities></home-opportunities>
