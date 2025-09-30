@@ -55,7 +55,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $app->hook('auth.successful', function () use ($app) {
             if ($app->auth->isUserAuthenticated()) {
                 $user = $app->user;
-                
+
                 if (!$user->som_active) {
                     $user->som_active = '1';
                     $user->save(true);
@@ -111,5 +111,10 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         };
         $app->hook('template(agent.single.single1-entity-info-taxonomie-area):before', $addTaxonomyToAgentSingle);
         $app->hook('template(agent.single.single2-entity-info-taxonomie-area):before', $addTaxonomyToAgentSingle);
+
+        // Registra o ícone do widget de Comunidades
+        $app->hook('component(mc-icon).iconset', function(&$iconset) {
+            $iconset['hand'] = 'ion:hand-right';
+        });
     }
 }

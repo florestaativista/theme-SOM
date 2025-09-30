@@ -1,6 +1,7 @@
 <?php
 $this->import("
     home-entities
+    home-logo-strip
     home-opportunities
 ");
 ?>
@@ -21,5 +22,5 @@ $this->import("
 
     <home-opportunities></home-opportunities>
     <home-entities></home-entities>
+    <home-logo-strip></home-logo-strip>
 </div>
-
