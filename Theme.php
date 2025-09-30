@@ -35,7 +35,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             ";
         });
 
-        $app->hook('GET(<<*>>):before, -GET(agent.edit):before', function () use ($app) {
+        $app->hook('GET(<<*>>):before, -GET(agent.<<unlock|edit>>):before, -GET(auth.<<*>>):before', function () use ($app) {
             if ($app->auth->isUserAuthenticated()) {
                 $profile = $app->user->profile;
                 if ($profile->validationErrors) {
