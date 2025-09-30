@@ -35,7 +35,25 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             ";
         });
 
-        $app->hook('GET(<<*>>):before, -GET(agent.<<unlock|edit>>):before, -GET(auth.<<*>>):before', function () use ($app) {
+        $app->hook('GET(<<*>>):before', function () use ($app) {
+            $allowed_routes = [
+                'agent' => 'unlock,edit',
+                'lgpd' => 'accept',
+                'auth' => '*'
+            ];
+
+            foreach ($allowed_routes as $controller_id => $actions) {
+                if($this->id == $controller_id) {
+                    if($actions == '*') {
+                        return;
+                    }
+
+                    if(in_array($this->action, explode(',', $actions))) {
+                        return;
+                    }
+                }
+            }
+
             if ($app->auth->isUserAuthenticated()) {
                 $profile = $app->user->profile;
                 if ($profile->validationErrors) {
