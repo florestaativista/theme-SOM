@@ -17,7 +17,22 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         $app = App::i();
 
-        // FILTRA A API DE AGENTES
+        /* REMOVE A VALIDAÇÃO DA ÁREA DE ATUAÇÃO */
+        $app->hook('entity(Agent).validationErrors', function (&$errors) {
+            unset($errors['term-area']);
+        });
+
+        /* ADICIONA A ÁREA DE ATUAÇÃO MÚSICA */
+        $app->hook('entity(Agent).<<insert|save>>:before', function() {
+            if (!in_array(i::__('Música'), $this->terms['area'])) {
+                $terms = $this->terms ?? [];
+                $terms['area'] = $terms['area'] ?? [];
+                $terms['area'][] = i::__('Música');
+                $this->terms = $terms;
+            }
+        });
+
+        /* FILTRA A API DE AGENTES */
         $app->hook('ApiQuery(Agent).joins', function(&$joins) use($app) {
             $request = $app->request;
 
