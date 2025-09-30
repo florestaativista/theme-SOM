@@ -17,6 +17,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         $app = App::i();
 
+        // FILTRA A API DE AGENTES
         $app->hook('ApiQuery(Agent).joins', function(&$joins) use($app) {
             $request = $app->request;
 
@@ -35,6 +36,19 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             ";
         });
 
+        /* DEFINE O METADADO som_active = 1 NO LOGIN  */
+        $app->hook('auth.successful', function () use ($app) {
+            if ($app->auth->isUserAuthenticated()) {
+                $user = $app->user;
+                
+                if (!$user->som_active) {
+                    $user->som_active = '1';
+                    $user->save(true);
+                }
+            }
+        });
+
+        /* REDIRECIONA O AGENTE PARA A PÁGINA DO PERFIL SE O PERFIL NÃO ESTIVER COMPLETO */
         $app->hook('GET(<<*>>):before', function () use ($app) {
             $allowed_routes = [
                 'agent' => 'unlock,edit',
