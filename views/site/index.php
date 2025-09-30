@@ -1,5 +1,6 @@
 <?php
 $this->import("
+    home-entities
     home-opportunities
 ");
 ?>
@@ -17,6 +18,8 @@ $this->import("
             <p>Uma plataforma desenvolvida para bandas e artistas independentes.</p>
         </div>
     </div>
+
+    <home-opportunities></home-opportunities>
+    <home-entities></home-entities>
 </div>
 
-<home-opportunities></home-opportunities>

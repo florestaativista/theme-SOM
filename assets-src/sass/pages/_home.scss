@@ -63,4 +63,34 @@
             @include som-button-large-shadow(var(--mc-primary-700));
         }
     }
+
+}
+
+.home-entities {
+
+    &__content {
+
+        .card__right .button {
+            background-color: var(--mc-primary-500);
+            color: white;
+            @include som-button-large-shadow(var(--mc-gray-500));
+        }
+    }
+}
+
+.home-opportunities {
+
+    .entity-card {
+
+        &__header {
+
+            .mc-avatar {
+                display: none;
+            }
+        }
+
+        .button {
+            @include som-button-large-shadow(var(--mc-low-300));
+        }
+    }
 }
