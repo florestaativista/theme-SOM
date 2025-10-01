@@ -1,3 +1,16 @@
+.form {
+
+    .input, .order {
+        background-color: var(--mc-white);
+        border: none !important;
+        @include som-down-shadow(4);
+    }
+
+    .input + .button--icon {
+        box-shadow: none;
+    }
+}
+
 .field, .entity-tabs {
 
     input {
