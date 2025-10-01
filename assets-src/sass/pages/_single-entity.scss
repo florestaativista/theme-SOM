@@ -16,13 +16,22 @@
     border-top-left-radius: $som-border-radius-panel;
     border-top-right-radius: $som-border-radius-panel;
 
-    &__single--content {
+    &__single {
 
-        .share .button {
-            color: var(--mc-primary-500);
+        &--cover {
+            border-top-left-radius: $som-border-radius-panel;
+            border-top-right-radius: $som-border-radius-panel;
+            max-width: size(1200);
+        }
 
-            .iconify {
-                font-size: size(20);
+        &--content {
+
+            .share .button {
+                color: var(--mc-primary-500);
+
+                .iconify {
+                    font-size: size(20);
+                }
             }
         }
     }
