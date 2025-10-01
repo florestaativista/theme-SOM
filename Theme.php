@@ -96,6 +96,11 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             }
         });
 
+        /* ADICIONA FUNÇÃO NA MÚSICA NA PSEUDO_QUERY DO AGENTE */
+        $app->hook('search-agents-initial-pseudo-query', function (&$pseudo_query) {
+            $pseudo_query['term:funcao_musica'] = [];
+        });
+
         $this->assetManager->publishFolder('custom-fonts');
         $app->hook('mapasculturais.body:after', function() use ($app) {
             $this->part('theme-css');
