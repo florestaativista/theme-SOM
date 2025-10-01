@@ -32,6 +32,11 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             }
         });
 
+        /* RESTRINGE PERMISSÕES PARA MANIPULAR OPORTUNIDADES */
+        $app->hook('can(Opportunity.<<*>>)', function() use ($app) {
+            return $app->auth->isUserAuthenticated() && $app->user->isUserAdmin($app->user);
+        });
+
         /* FILTRA A API DE AGENTES */
         $app->hook('ApiQuery(Agent).joins', function(&$joins) use($app) {
             $request = $app->request;
@@ -112,7 +117,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $app->hook('template(agent.single.single1-entity-info-taxonomie-area):before', $addTaxonomyToAgentSingle);
         $app->hook('template(agent.single.single2-entity-info-taxonomie-area):before', $addTaxonomyToAgentSingle);
 
-        // Registra o ícone do widget de Comunidades
+        /* REGISTRO O ÍCONE DO WIDGET DE COMUNIDADES */
         $app->hook('component(mc-icon).iconset', function(&$iconset) {
             $iconset['hand'] = 'ion:hand-right';
         });
