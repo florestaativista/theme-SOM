@@ -102,9 +102,6 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         });
 
         $this->assetManager->publishFolder('custom-fonts');
-        $app->hook('mapasculturais.body:after', function() use ($app) {
-            $this->part('theme-css');
-        });
 
         $addTaxonomyToAgentSingle = function () {
         ?>
