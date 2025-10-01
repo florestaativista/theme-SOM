@@ -3,4 +3,12 @@
     &__popper {
         border: 1px solid #f7f7f7;
     }
+
+    &__content {
+        background-color: var(--mc-white);
+    }
+
+    &__filter {
+        z-index: 1;
+    }
 }
