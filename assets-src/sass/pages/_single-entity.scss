@@ -7,6 +7,17 @@
     }
 }
 
+.layout-entity {
+
+    .mc-map {
+        margin-top: size(16);
+    }
+
+    .tabs-component__header {
+        background-color: var(--mc-white);
+    }
+}
+
 .entity-actions {
     background-color: var(--mc-primary-500);
     box-shadow: var(--mc-shadow-lv1-up);
