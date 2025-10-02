@@ -13,9 +13,11 @@ $this->import("
         <img src="<?php $this->asset('img/som-banner.jpg') ?>" alt="SOM">
         <div class="som-home__hero">
             <p>Uma plataforma desenvolvida para bandas e artistas independentes.</p>
+            <?php if (!$app->auth->isUserAuthenticated()): ?>
             <div class="som-home__hero-button">
                 <a class="button button--primary button--large" href="<?= $app->createUrl('panel', 'index') ?>">Crie seu perfil agora</a>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 
