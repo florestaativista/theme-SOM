@@ -70,6 +70,13 @@
 
     &__content {
 
+        &--header {
+
+            .description {
+                display: none;
+            }
+        }
+
         .card__right .button {
             background-color: var(--mc-primary-500);
             color: white;
