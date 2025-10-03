@@ -152,12 +152,12 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $this->render('artists');
         });
 
-        $app->hook('mapasculturais.getTitle', function(&$title) use ($app) {
-            if ($app->view->controller->action === 'artists') {
-                $title = i::__('Artistas');
-            } elseif ($app->view->controller->action === 'producers') {
-                $title = i::__('Produção');
-            }
+        /* ALTERA OS TÍTULOS DAS PÁGINAS */
+        $app->hook('view.title(search.artists)', function(&$title) {
+            $title = i::__('Artistas');
+        });
+        $app->hook('view.title(search.producers)', function(&$title) {
+            $title = i::__('Produção');
         });
     }
 }
