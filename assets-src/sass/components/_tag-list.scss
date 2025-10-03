@@ -3,6 +3,7 @@
     &__tag {
         background-color: var(--mc-secondary-500) !important;
         color: var(--mc-low-500) !important;
+        @include som-button-shadow;
     }
 
     .tabs-component & {
