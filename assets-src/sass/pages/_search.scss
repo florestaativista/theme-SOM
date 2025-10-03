@@ -35,6 +35,10 @@
     &__actions-form {
         position: relative;
 
+        input, .button--icon {
+            padding: size(12) size(16);
+        }
+
         input {
             background-color: var(--mc-white);
             border: none;
