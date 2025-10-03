@@ -1,0 +1,36 @@
+.select-entity {
+
+    &__popover {
+
+        .v-popper__inner {
+            background-color: var(--mc-white);
+        }
+    }
+
+    &__form {
+        position: relative;
+
+        &--input {
+            @extend %som-input;
+            border-radius: size(20);
+        }
+
+        &--button {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            inset-inline-end: 0;
+        }
+    }
+
+    &__results {
+        padding: size(8);
+
+        &--item {
+            background-color: var(--mc-white);
+            border: none;
+            border-radius: size(8);
+            @include som-up-shadow(4);
+        }
+    }
+}

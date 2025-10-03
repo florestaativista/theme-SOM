@@ -40,10 +40,8 @@
         }
 
         input {
-            background-color: var(--mc-white);
-            border: none;
+            @extend %som-input;
             border-radius: var(--mc-border-radius-pill);
-            @include som-down-shadow(4);
         }
 
         .button--icon {

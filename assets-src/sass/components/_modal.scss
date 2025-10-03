@@ -1,0 +1,30 @@
+.modal-content {
+    background-color: var(--mc-white) !important;
+    margin: size(32) auto !important;
+    @include som-context-shadow;
+
+    .select-list__item {
+
+        .inner {
+            background-color: var(--mc-white);
+            border: none;
+            border-radius: size(8);
+            @include som-up-shadow(8);
+
+            .selectButton.disabled {
+                color: var(--mc-low-500);
+            }
+
+            .itemLabel input[type=radio] {
+                @extend %som-radio;
+            }
+        }
+    }
+}
+
+.modal {
+
+    &__content.scrollbar {
+        padding-bottom: size(8);
+    }
+}

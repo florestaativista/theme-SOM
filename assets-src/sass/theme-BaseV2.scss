@@ -78,6 +78,7 @@ $border-radius-pill: 1rem;
 $som-border-radius-panel: 2rem;
 
 @import '0.settings/mixins';
+@import '0.settings/abstract';
 @import '0.settings/typography';
 @import '0.settings/global';
 
@@ -85,7 +86,9 @@ $som-border-radius-panel: 2rem;
 @import 'components/card';
 @import 'components/form';
 @import 'components/home-logo-strip';
+@import 'components/modal';
 @import 'components/multiselect';
+@import 'components/select-entity';
 @import 'components/tab';
 @import 'components/tag-list';
 
