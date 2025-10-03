@@ -55,8 +55,18 @@ $redirect_to = $_SERVER['REQUEST_URI'] ?? '/';
                 <?php $this->applyTemplateHook('mc-header-menu-agent', 'before') ?>
                 <li v-if="global.enabledEntities.agents">
                     <?php $this->applyTemplateHook('mc-header-menu-agent', 'begin') ?>
-                    <a href="<?= $app->createUrl('search', 'agents') ?>" class="mc-header-menu--item agent">
+                    <a href="<?= $app->createUrl('search', 'artists') ?>" class="mc-header-menu--item agent">
                         <p class="label"> <?php i::_e('Artistas') ?> </p>
+                    </a>
+                    <?php $this->applyTemplateHook('mc-header-menu-agent', 'end') ?>
+                </li>
+                <?php $this->applyTemplateHook('mc-header-menu-agent', 'after') ?>
+
+                <?php $this->applyTemplateHook('mc-header-menu-agent', 'before') ?>
+                <li v-if="global.enabledEntities.agents">
+                    <?php $this->applyTemplateHook('mc-header-menu-agent', 'begin') ?>
+                    <a href="<?= $app->createUrl('search', 'producers') ?>" class="mc-header-menu--item agent">
+                        <p class="label"> <?php i::_e('Produtores') ?> </p>
                     </a>
                     <?php $this->applyTemplateHook('mc-header-menu-agent', 'end') ?>
                 </li>

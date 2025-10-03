@@ -1,6 +1,7 @@
 <?php
 namespace SOM;
 
+use MapasCulturais\API;
 use MapasCulturais\App;
 use MapasCulturais\i;
 
@@ -54,6 +55,33 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                 JOIN e.__termRelations tr
                 JOIN tr.term funcao WITH funcao.taxonomy = 'funcao_musica' AND funcao.term IS NOT NULL
             ";
+        });
+
+        $app->hook('ApiQuery(Agent).params', function(&$params) use($app) {
+            $funcoes_validas = ['artista', 'produtor'];
+            $funcao = $params['@funcao'] ?? false;
+
+            if ($funcao && in_array($funcao, $funcoes_validas)) {
+                $taxonomy = $app->getRegisteredTaxonomyBySlug('funcao_musica');
+                $producers_terms = [i::__('Produtor'),i::__('Produtor de Festival'),i::__('Produtor de Campo')];
+
+                $terms = [
+                    'artista' => array_diff($taxonomy->restrictedTerms, $producers_terms),
+                    'produtor' => $producers_terms,
+                ];
+                 
+                
+                $filter = API::IN($terms[$funcao]);
+
+                if(isset($params['term:funcao_musica'])) {
+                    $params['term:funcao_musica'] = API::AND($params['term:funcao_musica'], $filter);
+                } else {
+                    $params['term:funcao_musica'] = $filter;
+                }
+                
+                unset($params['@funcao']);
+            }
+
         });
 
         /* DEFINE O METADADO som_active = 1 NO LOGIN  */
@@ -117,6 +145,17 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         /* REGISTRO O ÍCONE DO WIDGET DE COMUNIDADES */
         $app->hook('component(mc-icon).iconset', function(&$iconset) {
             $iconset['hand'] = 'ion:hand-right';
+        });
+
+
+        /* ================ NOVAS ROTAS =================== */
+        // Cria rota para carregar os produtores
+        $app->hook('GET(search.producers)', function() use ($app) {
+            $this->render('producers');
+        });
+
+        $app->hook('GET(search.artists)', function() use ($app) {
+            $this->render('artists');
         });
     }
 }
