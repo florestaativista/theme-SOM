@@ -31,4 +31,22 @@
             box-shadow: none !important;
         }
     }
+
+    &__actions-form {
+        position: relative;
+
+        input {
+            background-color: var(--mc-white);
+            border: none;
+            border-radius: var(--mc-border-radius-pill);
+            @include som-down-shadow(4);
+        }
+
+        .button--icon {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            inset-inline-end: 0;
+        }
+    }
 }
