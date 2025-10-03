@@ -151,5 +151,13 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $app->hook('GET(search.artists)', function() {
             $this->render('artists');
         });
+
+        $app->hook('mapasculturais.getTitle', function(&$title) use ($app) {
+            if ($app->view->controller->action === 'artists') {
+                $title = i::__('Artistas');
+            } elseif ($app->view->controller->action === 'producers') {
+                $title = i::__('Produção');
+            }
+        });
     }
 }

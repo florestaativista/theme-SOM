@@ -58,7 +58,7 @@ $config = $app->config['social-media'];
                 </li>
                 <li>
                     <a href="<?= $app->createUrl('search', 'producers') ?>">
-                        <mc-icon name="agent"></mc-icon> <?php i::_e('produtores'); ?>
+                        <mc-icon name="agent"></mc-icon> <?php i::_e('produção'); ?>
                     </a>
                 </li>
                 <li v-if="global.enabledEntities.spaces">

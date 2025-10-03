@@ -66,7 +66,7 @@ $redirect_to = $_SERVER['REQUEST_URI'] ?? '/';
                 <li v-if="global.enabledEntities.agents">
                     <?php $this->applyTemplateHook('mc-header-menu-agent', 'begin') ?>
                     <a href="<?= $app->createUrl('search', 'producers') ?>" class="mc-header-menu--item agent">
-                        <p class="label"> <?php i::_e('Produtores') ?> </p>
+                        <p class="label"> <?php i::_e('Produção') ?> </p>
                     </a>
                     <?php $this->applyTemplateHook('mc-header-menu-agent', 'end') ?>
                 </li>
