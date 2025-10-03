@@ -3,6 +3,7 @@ namespace SOM;
 
 use MapasCulturais\API;
 use MapasCulturais\App;
+use MapasCulturais\Controllers;
 use MapasCulturais\i;
 
 
@@ -25,17 +26,29 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         /* ADICIONA A ÁREA DE ATUAÇÃO MÚSICA */
         $app->hook('entity(Agent).<<insert|save>>:before', function() {
-            if (!in_array(i::__('Música'), $this->terms['area'])) {
-                $terms = $this->terms ?? [];
-                $terms['area'] = $terms['area'] ?? [];
+            $terms = $this->terms ?: [];
+            $terms['area'] = $terms['area'] ?? [];
+            if (!in_array(i::__('Música'), $terms['area'])) {
                 $terms['area'][] = i::__('Música');
-                $this->terms = $terms;
+                $this->terms = (array) $terms;
             }
         });
 
-        /* RESTRINGE PERMISSÕES PARA MANIPULAR OPORTUNIDADES */
-        $app->hook('can(Opportunity.<<*>>)', function() use ($app) {
-            return $app->auth->isUserAuthenticated() && $app->user->isUserAdmin($app->user);
+        /* RESTRINGE PERMISSÕES PARA CRIAR OPORTUNIDADES */
+        $app->hook('POST(opportunity.index):before', function() use ($app) {
+            /**
+             * @var Controllers\Opportunity $this
+             */
+            if (!$app->user->is('admin')) {
+                $this->errorJson(i::__('Permissão negada'), 403);
+            }
+        });
+
+        /* RESTRINGE VISUALIZAÇÃO DO BOTÃO DE CRIAÇÃO DE OPORTUNIDADE */
+        $app->hook('component(create-opportunity):params', function (&$component_name) use ($app) {
+            if (!$app->user->is('admin')) {
+                $component_name = 'mc-empty';
+            }
         });
 
         /* FILTRA A API DE AGENTES */
@@ -62,26 +75,16 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $funcao = $params['@funcao'] ?? false;
 
             if ($funcao && in_array($funcao, $funcoes_validas)) {
-                $taxonomy = $app->getRegisteredTaxonomyBySlug('funcao_musica');
-                $producers_terms = [i::__('Produtor'),i::__('Produtor de Festival'),i::__('Produtor de Campo')];
-
                 $terms = [
-                    'artista' => array_diff($taxonomy->restrictedTerms, $producers_terms),
-                    'produtor' => $producers_terms,
+                    'artista' => [i::__('Artista')],
+                    'produtor' => [i::__('Produção')],
                 ];
-                 
-                
-                $filter = API::IN($terms[$funcao]);
 
-                if(isset($params['term:funcao_musica'])) {
-                    $params['term:funcao_musica'] = API::AND($params['term:funcao_musica'], $filter);
-                } else {
-                    $params['term:funcao_musica'] = $filter;
-                }
-                
+                $filter = API::IN($terms[$funcao]);
+                $params['term:funcao_musica'] = $filter;
+
                 unset($params['@funcao']);
             }
-
         });
 
         /* DEFINE O METADADO som_active = 1 NO LOGIN  */
@@ -124,11 +127,6 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             }
         });
 
-        /* ADICIONA FUNÇÃO NA MÚSICA NA PSEUDO_QUERY DO AGENTE */
-        $app->hook('search-agents-initial-pseudo-query', function (&$pseudo_query) {
-            $pseudo_query['term:funcao_musica'] = [];
-        });
-
         $this->assetManager->publishFolder('custom-fonts');
 
         $addTaxonomyToAgentSingle = function () {
@@ -144,14 +142,13 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $iconset['hand'] = 'ion:hand-right';
         });
 
-
         /* ================ NOVAS ROTAS =================== */
         // Cria rota para carregar os produtores
-        $app->hook('GET(search.producers)', function() use ($app) {
+        $app->hook('GET(search.producers)', function() {
             $this->render('producers');
         });
 
-        $app->hook('GET(search.artists)', function() use ($app) {
+        $app->hook('GET(search.artists)', function() {
             $this->render('artists');
         });
     }

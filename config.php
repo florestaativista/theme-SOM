@@ -4,8 +4,8 @@ use \MapasCulturais\i;
 
 return [
     'app.enabled.events' => false,
-    'app.enabled.spaces' => false,
-    'app.enabled.projects' => false,
+    'app.enabled.spaces' => true,
+    'app.enabled.projects' => true,
 
     'app.siteName' => 'SOM',
 

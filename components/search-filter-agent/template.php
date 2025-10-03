@@ -30,12 +30,6 @@ $this->import('
                 <option value="2"> <?php i::_e('Agente Coletivo') ?> </option>
             </select>
         </div>
-        <div class="field">
-            <label> <?php i::_e('Função na música') ?></label>
-            <mc-multiselect :model="pseudoQuery['term:funcao_musica']" placeholder="<?php i::_e('Selecione as funções') ?>" :items="terms" hide-filter hide-button></mc-multiselect>
-            <mc-tag-list editable :tags="pseudoQuery['term:funcao_musica']" classes="agent__background agent__color"></mc-tag-list>
-        </div>
-        <?php $this->applyTemplateHook('search-filter-agent', 'end') ?>
     </form>
     <a class="clear-filter" @click="clearFilters()"><?php i::_e('Limpar todos os filtros') ?></a>
 </search-filter>

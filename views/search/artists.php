@@ -8,21 +8,20 @@ use MapasCulturais\i;
 
 $this->import('
     mc-tab
-    mc-tabs 
-    search 
-    search-filter-agent 
-    search-list 
-    search-map 
+    mc-tabs
+    search
+    search-filter-agent
+    search-list
+    search-map
 ');
 
 $this->breadcrumb = [
     ['label' => i::__('Inicio'), 'url' => $app->createUrl('site', 'index')],
     ['label' => i::__('Artistas'), 'url' => $app->createUrl('search', 'artists')],
-]; 
+];
 
 $pseudo_query = [
     '@funcao' => 'artista',
-    'term:funcao_musica' => [],
 ];
 ?>
 <search page-title="<?php i::esc_attr_e('Artistas') ?>" entity-type="agent" :initial-pseudo-query='<?= json_encode($pseudo_query) ?>'>
