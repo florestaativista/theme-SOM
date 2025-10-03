@@ -1,0 +1,45 @@
+.mapas-terms {
+
+    &__header-title {
+
+        .title {
+            color: white;
+        }
+    }
+
+    &__content {
+        background-color: var(--mc-white);
+        border-radius: $som-border-radius-panel;
+        margin: size(32) auto !important;
+        max-width: size(1200);
+        @include som-context-shadow;
+
+        .tabs-component {
+
+            &__header {
+                background-color: transparent;
+                padding: $som-border-radius-panel size(32) 0;
+
+                .iconify {
+                    color: var(--mc-success-500);
+                }
+            }
+
+            &__panels {
+                border-bottom-left-radius: $som-border-radius-panel;
+                border-bottom-right-radius: $som-border-radius-panel;
+            }
+        }
+    }
+
+    .mc-card {
+        background-color: var(--mc-white);
+        border-radius: $som-border-radius-panel;
+        margin: size(32) auto !important;
+        max-width: size(1200);
+
+        &:empty {
+            display: none;
+        }
+    }
+}

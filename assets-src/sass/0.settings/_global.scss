@@ -11,6 +11,7 @@ h1, h2, h3 {
     border-radius: $som-border-radius-panel;
     margin: size(32) auto !important;
     max-width: size(1200);
+    @include som-context-shadow;
 }
 
 .mc-breadcrumb {
