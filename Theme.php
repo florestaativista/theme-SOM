@@ -70,7 +70,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             ";
         });
 
-        $app->hook('ApiQuery(Agent).params', function(&$params) use($app) {
+        $app->hook('ApiQuery(Agent).params', function(&$params) {
             $funcoes_validas = ['artista', 'produtor'];
             $funcao = $params['@funcao'] ?? false;
 

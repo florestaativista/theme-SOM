@@ -1,0 +1,4 @@
+.alert {
+    border-radius: size(8);
+    @include som-context-shadow;
+}

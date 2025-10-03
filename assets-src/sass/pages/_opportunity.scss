@@ -1,0 +1,78 @@
+.controller-opportunity {
+
+    .stepper-step, .opportunity-enable-workplan {
+        background-color: var(--mc-white);
+        border: none;
+        border-radius: size(8);
+        @include som-up-shadow(4);
+    }
+
+    .stepper-header {
+        background: transparent;
+
+        .button--icon {
+            box-shadow: none;
+        }
+    }
+
+    .opportunity-proponent-types__field {
+    
+        input[type=checkbox] {
+            @extend %som-checkbox;
+        }
+    }
+
+    .opportunity-phase-config-status {
+
+        input[type=checkbox] {
+            @extend %som-checkbox;
+        }
+    }
+
+    .mc-accordion {
+        background-color: var(--mc-white);
+        border: none;
+        color: var(--mc-gray-700);
+        @include som-up-shadow(4);
+
+        &__header, &__content {
+            background-color: transparent;
+        }
+    }
+
+    ol.mc-stepper-vertical {
+
+        li::before {
+            background-color: var(--mc-white);
+            border: none;
+            color: var(--mc-gray-700);
+            @include som-up-shadow(4);
+        }
+
+        li.active::before {
+            color: var(--mc-gray-700);
+        }
+    }
+
+    .phase-delete__trash {
+
+        .icon .iconify {
+            color: var(--mc-warning-500);
+        }
+    }
+
+    .seals-certifier__categories, .seals-certifier__proponents {
+        background-color: var(--mc-white);
+        border: none;
+        border-radius: size(8);
+        @include som-up-shadow(4);
+    }
+
+    .seals-certifier__category--addSeal, .seals-certifier__proponent--addSeal {
+        background-color: var(--mc-primary-500);
+        border: none;
+        color: white;
+        @include som-button-shadow;
+    }
+}
+

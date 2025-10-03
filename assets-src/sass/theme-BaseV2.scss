@@ -82,6 +82,7 @@ $som-border-radius-panel: 2rem;
 @import '0.settings/typography';
 @import '0.settings/global';
 
+@import 'components/alert';
 @import 'components/button';
 @import 'components/card';
 @import 'components/form';
@@ -97,6 +98,7 @@ $som-border-radius-panel: 2rem;
 @import 'layouts/main-header';
 
 @import 'pages/home';
+@import 'pages/opportunity';
 @import 'pages/panel';
 @import 'pages/search';
 @import 'pages/single-entity';

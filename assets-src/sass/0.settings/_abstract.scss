@@ -2,6 +2,10 @@
 
 }
 
+%som-card {
+    
+}
+
 %som-input {
     background-color: var(--mc-white);
     border: none;
@@ -37,6 +41,10 @@
             left: unset;
             right: size(2);
         }
+    }
+
+    &[disabled]:checked {
+        background-color: var(--mc-gray-500);
     }
 }
 
