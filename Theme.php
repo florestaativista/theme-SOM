@@ -28,6 +28,24 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         return __DIR__;
     }
 
+    function register() {
+        $app = App::i();
+        $theme = $this;
+
+        $app->hook('app.register:after', function () use ($theme) {
+            /** @var MapasCulturais\App $this */
+            $visible_project_types = $theme->getVisibleProjectTypes();
+            
+            $project_types = $this->_register['entity_types'][Entities\Project::class];
+
+            foreach ($project_types as $type) {
+                if (!in_array($type->name, $visible_project_types)) {
+                    unset($project_types[$type->id]);
+                }
+            }
+        });
+    }
+
     function _init() {
         parent::_init();
 
@@ -224,7 +242,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         });
     }
 
-    function agentRequiredProperties(array $required_metadata) {
+    public function agentRequiredProperties(array $required_metadata) {
         $app = App::i();
 
         $metadata = $app->getRegisteredMetadata('MapasCulturais\Entities\Agent');
@@ -234,5 +252,14 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                 $meta->is_required = true;
             }
         }
+    }
+
+    public function getVisibleProjectTypes(): array {
+        return [
+            i::__('Festival'),
+            i::__('Encontro'),
+            i::__('Mostra'),
+            i::__('Feira'),
+        ];
     }
 }
