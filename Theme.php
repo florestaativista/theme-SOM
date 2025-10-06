@@ -185,6 +185,63 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             }
         });
 
+        /* FILTRA A API DE ESPAÇOS */
+        $app->hook('ApiQuery(Space).params', function(&$params) use($app, $self) {
+            $entity_types = $app->getRegisteredEntityTypes(Entities\Space::class);
+            $visible_types = $self->getVisibleSpaceTypes();
+            $visible_ids = [];
+            
+            foreach ($entity_types as $type) {
+                if (in_array($type->name, $visible_types)) {
+                    $visible_ids[] = $type->id;
+                }
+            }
+            
+            if (empty($params['type'])) {
+                $params['type'] = API::IN($visible_ids);
+            } else {
+                $params['type'] = API::AND($params['type'], API::IN($visible_ids));
+            }
+        });
+
+        /* FILTRA A API DE OPORTUNIDADES */
+        $app->hook('ApiQuery(Opportunity).params', function(&$params) use($app, $self) {
+            $entity_types = $app->getRegisteredEntityTypes(Entities\Opportunity::class);
+            $visible_types = $self->getVisibleOpportunityTypes();
+            $visible_ids = [];
+            
+            foreach ($entity_types as $type) {
+                if (in_array($type->name, $visible_types)) {
+                    $visible_ids[] = $type->id;
+                }
+            }
+            
+            if (empty($params['type'])) {
+                $params['type'] = API::IN($visible_ids);
+            } else {
+                $params['type'] = API::AND($params['type'], API::IN($visible_ids));
+            }
+        });
+
+        /* FILTRA A API DE PROJETOS */
+        $app->hook('ApiQuery(Project).params', function(&$params) use($app, $self) {
+            $entity_types = $app->getRegisteredEntityTypes(Entities\Project::class);
+            $visible_types = $self->getVisibleProjectTypes();
+            $visible_ids = [];
+            
+            foreach ($entity_types as $type) {
+                if (in_array($type->name, $visible_types)) {
+                    $visible_ids[] = $type->id;
+                }
+            }
+            
+            if (empty($params['type'])) {
+                $params['type'] = API::IN($visible_ids);
+            } else {
+                $params['type'] = API::AND($params['type'], API::IN($visible_ids));
+            }
+        });
+
         /* DEFINE O METADADO som_active = 1 NO LOGIN  */
         $app->hook('auth.successful', function () use ($app) {
             if ($app->auth->isUserAuthenticated()) {
