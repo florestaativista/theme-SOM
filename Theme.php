@@ -34,13 +34,30 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         $app->hook('app.register:after', function () use ($theme) {
             /** @var MapasCulturais\App $this */
+            $visible_opportunity_types = $theme->getVisibleOpportunityTypes();
             $visible_project_types = $theme->getVisibleProjectTypes();
+            $visible_space_types = $theme->getVisibleSpaceTypes();
             
-            $project_types = $this->_register['entity_types'][Entities\Project::class];
-
+            $entity_types = $this->_register['entity_types'];
+            
+            $opportunity_types = $entity_types[Entities\Opportunity::class];
+            foreach ($opportunity_types as $type) {
+                if (!in_array($type->name, $visible_opportunity_types)) {
+                    unset($opportunity_types[$type->id]);
+                }
+            }
+            
+            $project_types = $entity_types[Entities\Project::class];
             foreach ($project_types as $type) {
                 if (!in_array($type->name, $visible_project_types)) {
                     unset($project_types[$type->id]);
+                }
+            }
+            
+            $space_types = $entity_types[Entities\Space::class];
+            foreach ($space_types as $type) {
+                if (!in_array($type->name, $visible_space_types)) {
+                    unset($space_types[$type->id]);
                 }
             }
         });
@@ -252,6 +269,63 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                 $meta->is_required = true;
             }
         }
+    }
+
+    public function getVisibleSpaceTypes(): array {
+        return [
+            i::__('Aldeia'),
+            i::__('Bar'),
+            i::__('Casa Coletiva'),
+            i::__('Casa de espetáculo'),
+            i::__('Casa de shows'),
+            i::__('Centro Comunitário'),
+            i::__('Centro Cultural Privado'),
+            i::__('Centro Cultural Público'),
+            i::__('Centro de tradições'),
+            i::__('Concha acústica'),
+            i::__('Espaço para Eventos'),
+            i::__('Estúdio'),
+            i::__('Hostel'),
+            i::__('Hotel'),
+            i::__('Museu Privado'),
+            i::__('Museu Público'),
+            i::__('Outros Equipamentos Culturais'),
+            i::__('Palco de Rua'),
+            i::__('Plataforma Digital'),
+            i::__('Ponto de Cultura'),
+            i::__('Pousada'),
+            i::__('Praça dos esportes e da cultura'),
+            i::__('Sala de cinema'),
+            i::__('Teatro'),
+            i::__('Teatro de Arena'),
+        ];
+    }
+
+    public function getVisibleOpportunityTypes(): array {
+        return [
+            i::__('Audição'),
+            i::__('Concurso de bandas'),
+            i::__('Conferência'),
+            i::__('Curso'),
+            i::__('Encontro'),
+            i::__('Feira'),
+            i::__('Festa'),
+            i::__('Festa Popular'),
+            i::__('Festa Religiosa'),
+            i::__('Festival'),
+            i::__('Gravação de Clipe'),
+            i::__('Gravação Estúdio'),
+            i::__('Jam'),
+            i::__('Live'),
+            i::__('Oficina'),
+            i::__('Residência artística'),
+            i::__('Roda'),
+            i::__('Sarau'),
+            i::__('Seminário'),
+            i::__('Show'),
+            i::__('Slam'),
+            i::__('Turnê'),
+        ];
     }
 
     public function getVisibleProjectTypes(): array {
