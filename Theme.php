@@ -68,6 +68,10 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                     }
                 }
             }
+
+            if (!$this->avatar) {
+                $errors['file:avatar'] = [i::__('campo obrigatório')];
+            }
         });
 
         /* ADICIONA A ÁREA DE ATUAÇÃO MÚSICA */
