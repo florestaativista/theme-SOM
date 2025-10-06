@@ -42,6 +42,21 @@
     }
 }
 
+.mc-select {
+    background-color: var(--mc-white);
+
+    &__selected-option, &__options {
+        @extend %som-input;
+    }
+}
+
+.field.error {
+
+    input:not([type=checkbox], [type=radio]), textarea, select, .mc-select__selected-option {
+        border: size(2) solid #FF0000;
+    }
+}
+
 .field, .entity-tabs, .mc-multiselect__option {
 
     input[type=checkbox] {
@@ -56,14 +71,6 @@
         border-radius: size(20) !important;
         height: size(20) !important;
         width: size(32) !important;
-    }
-}
-
-.mc-select {
-    background-color: var(--mc-white);
-
-    &__selected-option, &__options {
-        @extend %som-input;
     }
 }
 

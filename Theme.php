@@ -11,10 +11,17 @@ use MapasCulturais\i;
 // class Theme extends \Subsite\Theme {
 class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
+    static $requiredAgentFields = [
+        'emailPrivado',
+        'telefone1',
+        'En_Pais',
+        'En_Estado',
+        'En_Municipio',
+    ];
+
     static $requiredAgent1Fields = [
         'nomeCompleto',
-        'raca',
-        'genero',
+        'dataDeNascimento',
     ];
 
     static function getThemeFolder() {
@@ -31,10 +38,10 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $app->hook('entity(Agent).update:before', function () use($self) {
             /** @var Entities\Agent $this */
             if ($this->type->id == 1) {
-                $self->agent1RequiredProperties();
+                $self->agentRequiredProperties(self::$requiredAgent1Fields);
             }
 
-            $self->agentRequiredProperties();
+            $self->agentRequiredProperties(self::$requiredAgentFields);
         });
 
 
@@ -44,10 +51,10 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $agent = $this->requestedEntity;
 
             if ($agent->type->id == 1) {
-                $self->agent1RequiredProperties();
+                $self->agentRequiredProperties(self::$requiredAgent1Fields);
             }
 
-            $self->agentRequiredProperties();
+            $self->agentRequiredProperties(self::$requiredAgentFields);
         });
 
         /* ALTERA O TIPO DE REQUISIÇÃO DO SALVAMENTO DE AGENTES PARA PUT */
@@ -66,6 +73,12 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                     if(!$this->$field && !isset($errors[$field])) {
                         $errors[$field] = [i::__('campo obrigatório')];
                     }
+                }
+            }
+
+            foreach(self::$requiredAgentFields as $field) {
+                if(!$this->$field && !isset($errors[$field])) {
+                    $errors[$field] = [i::__('campo obrigatório')];
                 }
             }
 
@@ -211,10 +224,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         });
     }
 
-    function agent1RequiredProperties() {
+    function agentRequiredProperties(array $required_metadata) {
         $app = App::i();
-
-        $required_metadata = self::$requiredAgent1Fields;
 
         $metadata = $app->getRegisteredMetadata('MapasCulturais\Entities\Agent');
 
@@ -223,11 +234,5 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                 $meta->is_required = true;
             }
         }
-    }
-
-    function agentRequiredProperties() {
-        $app = App::i();
-
-        $metadata = $app->getRegisteredMetadata('MapasCulturais\Entities\Agent');
     }
 }
