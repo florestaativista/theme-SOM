@@ -53,7 +53,7 @@
 .field.error {
 
     input:not([type=checkbox], [type=radio]), textarea, select, .mc-select__selected-option {
-        border: size(2) solid #FF0000;
+        border: size(2) solid var(--mc-error);
     }
 }
 
