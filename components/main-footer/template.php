@@ -43,32 +43,32 @@ $config = $app->config['social-media'];
                 </li>
                 <li v-if="global.enabledEntities.opportunities">
                     <a href="<?= $app->createUrl('search', 'opportunities') ?>">
-                        <mc-icon name="opportunity"></mc-icon> <?= $this->text('main-footer', i::__('editais e oportunidade')); ?>
+                        <?= $this->text('main-footer', i::__('Oportunidades')); ?>
                     </a>
                 </li>
                 <li v-if="global.enabledEntities.events">
                     <a href="<?= $app->createUrl('search', 'events') ?>">
-                        <mc-icon name="event"></mc-icon> <?php i::_e('eventos'); ?>
+                        <?php i::_e('Eventos'); ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?= $app->createUrl('search', 'artists') ?>">
-                        <mc-icon name="agent"></mc-icon> <?php i::_e('artistas'); ?>
+                        <?php i::_e('Artistas'); ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?= $app->createUrl('search', 'producers') ?>">
-                        <mc-icon name="agent"></mc-icon> <?php i::_e('produção'); ?>
+                        <?php i::_e('Produção'); ?>
                     </a>
                 </li>
                 <li v-if="global.enabledEntities.spaces">
                     <a href="<?= $app->createUrl('search', 'spaces') ?>">
-                        <mc-icon name="space"></mc-icon> <?php i::_e('espaços'); ?>
+                        <?php i::_e('Espaços'); ?>
                     </a>
                 </li>
                 <li v-if="global.enabledEntities.projects">
                     <a href="<?= $app->createUrl('search', 'projects') ?>">
-                        <mc-icon name="project"></mc-icon> <?php i::_e('projetos'); ?>
+                        <?php i::_e('Projetos'); ?>
                     </a>
                 </li>
             </ul>
@@ -78,7 +78,7 @@ $config = $app->config['social-media'];
                     <a href="<?= $app->createUrl('panel', 'index') ?>"><?php i::_e('Painel'); ?></a>
                 </li>
                 <li v-if="global.enabledEntities.opportunities">
-                    <a href="<?= $app->createUrl('panel', 'opportunities') ?>"><?php i::_e('Editais e oportunidades'); ?></a>
+                    <a href="<?= $app->createUrl('panel', 'opportunities') ?>"><?php i::_e('Oportunidades'); ?></a>
                 </li>
                 <li v-if="global.enabledEntities.events">
                     <a href="<?= $app->createUrl('panel', 'events') ?>"><?php i::_e('Meus eventos'); ?></a>
