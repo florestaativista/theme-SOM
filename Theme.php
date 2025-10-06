@@ -28,33 +28,34 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         return __DIR__;
     }
 
+
     function register() {
         $app = App::i();
         $theme = $this;
 
-        $app->hook('app.register:after', function () use ($theme) {
+        $app->hook("app.register", function (&$register) use ($theme) {
             /** @var MapasCulturais\App $this */
             $visible_opportunity_types = $theme->getVisibleOpportunityTypes();
             $visible_project_types = $theme->getVisibleProjectTypes();
             $visible_space_types = $theme->getVisibleSpaceTypes();
             
-            $entity_types = $this->_register['entity_types'];
+            $entity_types = &$register['entity_types'];
             
-            $opportunity_types = $entity_types[Entities\Opportunity::class];
+            $opportunity_types = &$entity_types[Entities\Opportunity::class];
             foreach ($opportunity_types as $type) {
                 if (!in_array($type->name, $visible_opportunity_types)) {
                     unset($opportunity_types[$type->id]);
                 }
             }
             
-            $project_types = $entity_types[Entities\Project::class];
+            $project_types = &$entity_types[Entities\Project::class];
             foreach ($project_types as $type) {
                 if (!in_array($type->name, $visible_project_types)) {
                     unset($project_types[$type->id]);
                 }
             }
             
-            $space_types = $entity_types[Entities\Space::class];
+            $space_types = &$entity_types[Entities\Space::class];
             foreach ($space_types as $type) {
                 if (!in_array($type->name, $visible_space_types)) {
                     unset($space_types[$type->id]);
