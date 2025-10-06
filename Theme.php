@@ -50,6 +50,11 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $self->agentRequiredProperties();
         });
 
+        /* ALTERA O TIPO DE REQUISIÇÃO DO SALVAMENTO DE AGENTES PARA PUT */
+        $app->hook('view(agent.edit).updateMethod', function(&$update_method) {
+            $update_method = 'PUT';
+        });
+
         /* REMOVE A VALIDAÇÃO DA ÁREA DE ATUAÇÃO */
         $app->hook('entity(Agent).validationErrors', function (&$errors) {
             /** @var Entities\Agent $this */
