@@ -58,7 +58,7 @@ $config = $app->config['social-media'];
                 </li>
                 <li>
                     <a href="<?= $app->createUrl('search', 'producers') ?>">
-                        <?php i::_e('Produção'); ?>
+                        <?php i::_e('Produtores'); ?>
                     </a>
                 </li>
                 <li v-if="global.enabledEntities.spaces">

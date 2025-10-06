@@ -17,14 +17,14 @@ $this->import('
 
 $this->breadcrumb = [
     ['label' => i::__('Inicio'), 'url' => $app->createUrl('site', 'index')],
-    ['label' => i::__('Produção'), 'url' => $app->createUrl('search', 'producers')],
+    ['label' => i::__('Produtores'), 'url' => $app->createUrl('search', 'producers')],
 ];
 
 $pseudo_query = [
     '@funcao' => 'produtor',
 ];
 ?>
-<search page-title="<?php i::esc_attr_e('Produção') ?>" entity-type="agent" :initial-pseudo-query='<?= json_encode($pseudo_query) ?>'>
+<search page-title="<?php i::esc_attr_e('Produtores') ?>" entity-type="agent" :initial-pseudo-query='<?= json_encode($pseudo_query) ?>'>
     <template #default="{pseudoQuery}">
         <mc-tabs class="search__tabs">
             <template #before-tablist>

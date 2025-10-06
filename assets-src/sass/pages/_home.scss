@@ -70,11 +70,6 @@
     background-color: white;
 
     &__content {
-        &--header {
-            .description {
-                display: none;
-            }
-        }
         
         .card {
             height: 260px;
@@ -82,6 +77,11 @@
 
             &__right {
                 background-color: transparent;
+
+                p {
+                    width: 100%;
+                }
+
                 .button {
                     background-color: var(--mc-primary-500);
                     color: white;

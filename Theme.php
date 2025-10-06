@@ -220,7 +220,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $title = i::__('Artistas');
         });
         $app->hook('view.title(search.producers)', function(&$title) {
-            $title = i::__('Produção');
+            $title = i::__('Produtores');
         });
     }
 
