@@ -2,6 +2,18 @@
 
 use \MapasCulturais\i;
 
+$this->config['routes']['shortcuts'] += [
+    'artistas' => ['search', 'artists'],
+    'producao' => ['search', 'producers'],
+    'casas' => ['search', 'spaces'],
+    'festivais' => ['search', 'projects'],
+];
+
+unset(
+    $this->config['routes']['shortcuts']['espacos'], 
+    $this->config['routes']['shortcuts']['projetos']
+);
+
 return [
     'app.enabled.events' => false,
     'app.enabled.spaces' => true,

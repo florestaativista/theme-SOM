@@ -4,11 +4,18 @@ namespace SOM;
 use MapasCulturais\API;
 use MapasCulturais\App;
 use MapasCulturais\Controllers;
+use MapasCulturais\Entities;
 use MapasCulturais\i;
 
 
 // class Theme extends \Subsite\Theme {
 class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
+
+    static $requiredAgent1Fields = [
+        'nomeCompleto',
+        'raca',
+        'genero',
+    ];
 
     static function getThemeFolder() {
         return __DIR__;
@@ -17,11 +24,45 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
     function _init() {
         parent::_init();
 
+        $self = $this;
         $app = App::i();
+
+        /* OBRIGATORIEDADE DOS CAMPOS DOS AGENTES */
+        $app->hook('entity(Agent).update:before', function () use($self) {
+            /** @var Entities\Agent $this */
+            if ($this->type->id == 1) {
+                $self->agent1RequiredProperties();
+            }
+
+            $self->agentRequiredProperties();
+        });
+
+
+        $app->hook('GET(agent.edit):before', function () use($self) {
+            /** @var Controllers\Agent $this */
+            
+            $agent = $this->requestedEntity;
+
+            if ($agent->type->id == 1) {
+                $self->agent1RequiredProperties();
+            }
+
+            $self->agentRequiredProperties();
+        });
 
         /* REMOVE A VALIDAÇÃO DA ÁREA DE ATUAÇÃO */
         $app->hook('entity(Agent).validationErrors', function (&$errors) {
+            /** @var Entities\Agent $this */
+
             unset($errors['term-area']);
+
+            if($this->type->id == 1) {
+                foreach(self::$requiredAgent1Fields as $field) {
+                    if(!$this->$field && !isset($errors[$field])) {
+                        $errors[$field] = [i::__('campo obrigatório')];
+                    }
+                }
+            }
         });
 
         /* ADICIONA A ÁREA DE ATUAÇÃO MÚSICA */
@@ -159,5 +200,25 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $app->hook('view.title(search.producers)', function(&$title) {
             $title = i::__('Produção');
         });
+    }
+
+    function agent1RequiredProperties() {
+        $app = App::i();
+
+        $required_metadata = self::$requiredAgent1Fields;
+
+        $metadata = $app->getRegisteredMetadata('MapasCulturais\Entities\Agent');
+
+        foreach($metadata as $meta) {
+            if(in_array($meta->key, $required_metadata)) {
+                $meta->is_required = true;
+            }
+        }
+    }
+
+    function agentRequiredProperties() {
+        $app = App::i();
+
+        $metadata = $app->getRegisteredMetadata('MapasCulturais\Entities\Agent');
     }
 }

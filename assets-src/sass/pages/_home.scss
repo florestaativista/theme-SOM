@@ -67,20 +67,27 @@
 }
 
 .home-entities {
+    background-color: white;
 
     &__content {
-
         &--header {
-
             .description {
                 display: none;
             }
         }
+        
+        .card {
+            height: 260px;
+            overflow: visible;
 
-        .card__right .button {
-            background-color: var(--mc-primary-500);
-            color: white;
-            @include som-button-large-shadow(var(--mc-gray-500));
+            &__right {
+                background-color: transparent;
+                .button {
+                    background-color: var(--mc-primary-500);
+                    color: white;
+                    @include som-button-large-shadow(var(--mc-gray-500));
+                }
+            }
         }
     }
 }
