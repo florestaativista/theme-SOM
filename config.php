@@ -4,7 +4,7 @@ use \MapasCulturais\i;
 
 $this->config['routes']['shortcuts'] += [
     'artistas' => ['search', 'artists'],
-    'producao' => ['search', 'producers'],
+    'produtores' => ['search', 'producers'],
     'casas' => ['search', 'spaces'],
     'festivais' => ['search', 'projects'],
 ];
