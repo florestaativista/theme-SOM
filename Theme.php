@@ -312,8 +312,17 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $app->hook('view.title(search.artists)', function(&$title) {
             $title = i::__('Artistas');
         });
+        
         $app->hook('view.title(search.producers)', function(&$title) {
             $title = i::__('Produtores');
+        });
+        
+        $app->hook('view.title(search.spaces)', function(&$title) {
+            $title = i::__('Casas');
+        });
+        
+        $app->hook('view.title(search.projects)', function(&$title) {
+            $title = i::__('Festivais');
         });
     }
 
