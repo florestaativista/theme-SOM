@@ -26,5 +26,5 @@ $this->import("
 
     <home-opportunities></home-opportunities>
     <home-entities></home-entities>
-    <home-logo-strip></home-logo-strip>
+    <!-- <home-logo-strip></home-logo-strip> -->
 </div>
