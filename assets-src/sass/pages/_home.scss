@@ -72,8 +72,26 @@
     &__content {
         
         .card {
-            height: 260px;
+            height: size(260);
             overflow: visible;
+
+            @include mobile {
+                height: auto;
+            }
+
+            &__left--img {
+                height: size(260);
+
+                @include mobile {
+                    height: auto;
+                }
+
+                img {
+                    aspect-ratio: 5 / 2;
+                    min-height: unset;
+                    object-fit: contain;
+                }
+            }
 
             &__right {
                 background-color: transparent;
