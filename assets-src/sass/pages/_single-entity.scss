@@ -9,6 +9,10 @@
 
 .layout-entity {
 
+    p.description {
+        font-family: var(--mc-font-body);
+    }
+
     .mc-map {
         margin-top: size(16);
     }
