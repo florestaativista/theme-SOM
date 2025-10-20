@@ -168,11 +168,13 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                 return;
             }
 
+            $alias = uniqid('tr_');
+
             $joins .= "
                 JOIN e.user u
                 JOIN u.__metadata um WITH um.key = 'som_active' AND um.value = '1'
-                JOIN e.__termRelations tr
-                JOIN tr.term funcao WITH funcao.taxonomy = 'funcao_musica' AND funcao.term IS NOT NULL
+                JOIN e.__termRelations {$alias}
+                JOIN {$alias}.term funcao WITH funcao.taxonomy = 'funcao_musica' AND funcao.term IS NOT NULL
             ";
         });
 
