@@ -101,8 +101,12 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         /* REMOVE A VALIDAÇÃO DA ÁREA DE ATUAÇÃO */
         $app->hook('entity(Agent).validationErrors', function (&$errors) {
             /** @var Entities\Agent $this */
-
+            
             unset($errors['term-area']);
+
+            if ($this->isNew()) {
+                return;
+            }
 
             if($this->type->id == 1) {
                 foreach(self::$requiredAgent1Fields as $field) {
