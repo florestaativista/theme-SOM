@@ -2,6 +2,7 @@
 namespace SOM;
 
 use MapasCulturais\API;
+use MapasCulturais\ApiQuery;
 use MapasCulturais\App;
 use MapasCulturais\Controllers;
 use MapasCulturais\Entities;
@@ -156,6 +157,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         /* FILTRA A API DE AGENTES */
         $app->hook('ApiQuery(Agent).joins', function(&$joins) use($app) {
+            /** @var ApiQuery $this*/
+
             $request = $app->request;
 
             // Don't filter agents when listing users, editing profile, etc.
@@ -174,6 +177,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         });
 
         $app->hook('ApiQuery(Agent).params', function(&$params) {
+            /** @var ApiQuery $this*/
+
             $funcoes_validas = ['artista', 'produtor'];
             $funcao = $params['@funcao'] ?? false;
 
@@ -192,6 +197,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         /* FILTRA A API DE ESPAÇOS */
         $app->hook('ApiQuery(Space).params', function(&$params) use($app, $self) {
+            /** @var ApiQuery $this*/
+
             $entity_types = $app->getRegisteredEntityTypes(Entities\Space::class);
             $visible_types = $self->getVisibleSpaceTypes();
             $visible_ids = [];
@@ -211,6 +218,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         /* FILTRA A API DE OPORTUNIDADES */
         $app->hook('ApiQuery(Opportunity).params', function(&$params) use($app, $self) {
+            /** @var ApiQuery $this*/
+
             $entity_types = $app->getRegisteredEntityTypes(Entities\Opportunity::class);
             $visible_types = $self->getVisibleOpportunityTypes();
             $visible_ids = [];
@@ -230,6 +239,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         /* FILTRA A API DE PROJETOS */
         $app->hook('ApiQuery(Project).params', function(&$params) use($app, $self) {
+            /** @var ApiQuery $this*/
+
             $entity_types = $app->getRegisteredEntityTypes(Entities\Project::class);
             $visible_types = $self->getVisibleProjectTypes();
             $visible_ids = [];
