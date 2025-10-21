@@ -13,7 +13,6 @@
         }
 
         &::after {
-            background-color: green;
             content: '';
             height: 100%;
             width: 100%;
@@ -111,6 +110,7 @@
 }
 
 .home-opportunities {
+    background-color: var(--mc-high-500);
 
     .entity-card {
         @include som-context-shadow;
