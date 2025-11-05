@@ -20,6 +20,7 @@ return [
     'app.enabled.projects' => true,
 
     'app.siteName' => 'SOM',
+    'app.siteDescription' => 'O SOM é a plataforma para quem faz a música pulsar: produtores, artistas, festivais e casas de show. Participe de oportunidades, troque experiências e ajude a desenhar o novo mapa da música brasileira.',
 
     'logo.image' => 'img/logo-som.png',
 
