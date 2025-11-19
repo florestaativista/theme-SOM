@@ -14,6 +14,12 @@ unset(
     $this->config['routes']['shortcuts']['projetos']
 );
 
+$this->config['plugins']['Zammad'] = [
+    'enabled' => true,
+    'url' => 'https://suporte.florestaativista.org/assets/chat/chat-no-jquery.min.js',    
+    'background' => '#F66968',
+    'title' => 'Duvidas? Fale conosco',
+];
 return [
     'app.enabled.events' => false,
     'app.enabled.spaces' => true,
