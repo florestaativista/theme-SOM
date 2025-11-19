@@ -1,0 +1,18 @@
+.entity-table {
+    
+    &__search-input {
+        @extend %som-input;
+    }
+
+    &__table {
+        background-color: white;
+    }
+
+    &__table-scroll {
+        width: 100%;
+    }
+
+    .button--text {
+        background-color: transparent;
+    }
+}
