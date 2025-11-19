@@ -15,11 +15,15 @@ unset(
 );
 
 $this->config['plugins']['Zammad'] = [
-    'enabled' => true,
-    'url' => 'https://suporte.florestaativista.org/assets/chat/chat-no-jquery.min.js',    
-    'background' => '#F66968',
-    'title' => 'Duvidas? Fale conosco',
+    'namespace' => 'Zammad',
+    'config' => [
+        'enabled' => true,
+        'url' => 'https://suporte.florestaativista.org/assets/chat/chat-no-jquery.min.js',    
+        'background' => '#c9a7ff',
+        'title' => 'Duvidas? Fale conosco',
+    ]
 ];
+
 return [
     'app.enabled.events' => false,
     'app.enabled.spaces' => true,
