@@ -162,7 +162,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $request = $app->request;
 
             // Don't filter agents when listing users, editing profile, etc.
-            $listing_agents = $request->controllerId === 'agent' && $request->action === 'find';
+            $listing_agents = $request && $request->controllerId === 'agent' && $request->action === 'find';
 
             if(!$listing_agents) {
                 return;
