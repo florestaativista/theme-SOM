@@ -71,6 +71,18 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $self = $this;
         $app = App::i();
 
+        $app->hook("template(<<*>>.<<*>>.head):end", function () use ($self) {
+            $this->part('gtm/tag-manager-pixel--head');
+        });
+
+        $app->hook("template(<<*>>.<<*>>.body):begin", function () use ($self) {
+            $this->part('gtm/tag-manager-pixel--body');
+        });
+
+        $app->hook("template(<<*>>.<<*>>.head):end", function () use ($self) {
+            $this->part('analytics/head');
+        });
+
         /* OBRIGATORIEDADE DOS CAMPOS DOS AGENTES */
         $app->hook('entity(Agent).update:before', function () use($self) {
             /** @var Entities\Agent $this */
