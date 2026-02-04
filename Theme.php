@@ -15,6 +15,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
     static $requiredAgentFields = [
         'emailPrivado',
         'telefone1',
+        'address_level0',
         'En_Pais',
         'En_Estado',
         'En_Municipio',
@@ -87,10 +88,28 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $app->hook('entity(Agent).update:before', function () use($self) {
             /** @var Entities\Agent $this */
             if ($this->type->id == 1) {
-                $self->agentRequiredProperties(self::$requiredAgent1Fields);
+                $self->agentRequiredProperties($self::$requiredAgent1Fields);
             }
 
-            $self->agentRequiredProperties(self::$requiredAgentFields);
+            $required_fields = $self::$requiredAgentFields;
+            $country = $this->En_Pais ?: null;
+            $is_brasil = ($country == 'BR') || is_null($country);
+            
+            // Remove Estado e Município da lista de obrigatórios se não for Brasil
+            if ($country && !$is_brasil) {
+                $required_fields = array_values(array_filter($required_fields, function($field) {
+                    return !in_array($field, ['En_Estado', 'En_Municipio', 'En_Pais']);
+                }));
+            }
+
+            // Remove address_level0 da lista de obrigatórios se for Brasil
+            if($is_brasil) {
+                $required_fields = array_values(array_filter($required_fields, function($field) {
+                    return !in_array($field, ['address_level0']);
+                }));
+            }
+
+            $self->agentRequiredProperties($required_fields);
         });
 
 
@@ -100,10 +119,28 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $agent = $this->requestedEntity;
 
             if ($agent->type->id == 1) {
-                $self->agentRequiredProperties(self::$requiredAgent1Fields);
+                $self->agentRequiredProperties($self::$requiredAgent1Fields);
             }
 
-            $self->agentRequiredProperties(self::$requiredAgentFields);
+            $required_fields = $self::$requiredAgentFields;
+            $country = $agent->En_Pais ?: null;
+            $is_brasil = ($country == 'BR') || is_null($country);
+            
+            // Remove Estado e Município da lista de obrigatórios se não for Brasil
+            if ($country && !$is_brasil) {
+                $required_fields = array_values(array_filter($required_fields, function($field) {
+                    return !in_array($field, ['En_Estado', 'En_Municipio', 'En_Pais']);
+                }));
+            }
+
+            // Remove address_level0 da lista de obrigatórios se for Brasil
+            if($is_brasil) {
+                $required_fields = array_values(array_filter($required_fields, function($field) {
+                    return !in_array($field, ['address_level0']);
+                }));
+            }
+
+            $self->agentRequiredProperties($required_fields);
         });
 
         /* ALTERA O TIPO DE REQUISIÇÃO DO SALVAMENTO DE AGENTES PARA PUT */
@@ -112,7 +149,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         });
 
         /* REMOVE A VALIDAÇÃO DA ÁREA DE ATUAÇÃO */
-        $app->hook('entity(Agent).validationErrors', function (&$errors) {
+        $app->hook('entity(Agent).validationErrors', function (&$errors) use($self) {
             /** @var Entities\Agent $this */
             
             unset($errors['term-area']);
@@ -122,14 +159,29 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             }
 
             if($this->type->id == 1) {
-                foreach(self::$requiredAgent1Fields as $field) {
+                foreach($self::$requiredAgent1Fields as $field) {
                     if(!$this->$field && !isset($errors[$field])) {
                         $errors[$field] = [i::__('campo obrigatório')];
                     }
                 }
             }
 
-            foreach(self::$requiredAgentFields as $field) {
+            $country = $this->En_Pais ?: null;
+            $is_brasil = ($country == 'BR');
+            $check_country_fields = $this->En_Pais ?: $this->address_level0 ?: null;
+            foreach($self::$requiredAgentFields as $field) {
+                if($check_country_fields) {
+                    // Estado e Município só são obrigatórios se o país for Brasil
+                    if (in_array($field, ['En_Estado', 'En_Municipio', 'En_Pais']) && !$is_brasil) {
+                        continue;
+                    }
+    
+                    // Remove address_level0 da lista de obrigatórios se for Brasil
+                    if($field == 'address_level0' && $is_brasil) {
+                        continue;
+                    }
+                }
+
                 if(!$this->$field && !isset($errors[$field])) {
                     $errors[$field] = [i::__('campo obrigatório')];
                 }
