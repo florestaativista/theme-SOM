@@ -72,6 +72,27 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         $self = $this;
         $app = App::i();
 
+        $app->hook('component(agent-table).additionalHeaders', function (&$defaultHeaders, &$additionalHeaders, &$default_select) use ($app) {
+           
+            $remove = ['funcao','spam_status','sentNotification', 'event_importer_processed_file', 'event_importer_files_processed'];
+            $defaultHeaders = array_values(array_filter($defaultHeaders, function($h) use ($remove) {
+                $slug = $h['slug'] ?? null;
+                return $slug === null || !in_array($slug, $remove, true);
+            }));
+
+            $additionalHeaders = array_values(array_filter($additionalHeaders, function($h) use ($remove) {
+                $slug = $h['slug'] ?? null;
+                return $slug === null || !in_array($slug, $remove, true);
+            }));
+
+            $default_select.= ',funcao_musica';
+            $defaultHeaders[] = [
+                'text' => 'Função da música',
+                'value' => "terms?.funcao_musica?.join(',')",
+                'slug'  => 'funcao_musica',
+            ];
+        });
+
         $app->hook("template(<<*>>.<<*>>.head):end", function () use ($self) {
             $this->part('gtm/tag-manager-pixel--head');
         });

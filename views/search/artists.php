@@ -13,6 +13,9 @@ $this->import('
     search-filter-agent
     search-list
     search-map
+    agent-table-2
+    agent-table-1
+    agent-table
 ');
 
 $this->breadcrumb = [
