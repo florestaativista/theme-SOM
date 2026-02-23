@@ -53,6 +53,10 @@ $pseudo_query = [
                     </search-map>
                 </div>
             </mc-tab>
+
+            <mc-tab v-if="global.auth.is('admin')" icon="table-view"  @click="global.mcTabActive = 'table'" label="<?php i::esc_attr_e('Tabela') ?>" slug="table">
+                <agent-table :extra-query="{'@funcao': 'artista'}"></agent-table>
+            </mc-tab>
         </mc-tabs>
     </template>
 </search>
