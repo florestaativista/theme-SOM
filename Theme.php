@@ -158,6 +158,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
                 return;
             }
 
+            $this->save(true);
+
             if($this->type->id == 1) {
                 foreach($self::$requiredAgent1Fields as $field) {
                     if(!$this->$field && !isset($errors[$field])) {
