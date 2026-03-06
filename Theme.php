@@ -412,6 +412,13 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             $this->render('artists');
         });
 
+        // Adiciona checkbox de filtro por avatar na busca de agentes
+        $app->hook('template(search.<<artists|producers>>.search-filter-agent):begin', function() {
+            if (in_array($this->controller->action, ['artists', 'producers'])) {
+                $this->part('search-filter-avatar');
+            }
+        });
+
         /* ALTERA OS TÍTULOS DAS PÁGINAS */
         $app->hook('view.title(search.artists)', function(&$title) {
             $title = i::__('Artistas');
