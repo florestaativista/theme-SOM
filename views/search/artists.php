@@ -25,6 +25,7 @@ $this->breadcrumb = [
 
 $pseudo_query = [
     '@funcao' => 'artista',
+    'avatar' => 1,
 ];
 ?>
 <search page-title="<?php i::esc_attr_e('Artistas') ?>" entity-type="agent" :initial-pseudo-query='<?= json_encode($pseudo_query) ?>'>
