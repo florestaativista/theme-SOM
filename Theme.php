@@ -226,7 +226,7 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         });
 
         /* RESTRINGE PERMISSÕES PARA CRIAR OPORTUNIDADES */
-        $app->hook('POST(opportunity.index):before', function() use ($app) {
+        $app->hook('POST(opportunity.<<index|generateopportunity>>):before', function() use ($app) {
             /**
              * @var Controllers\Opportunity $this
              */
