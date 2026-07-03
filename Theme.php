@@ -226,21 +226,21 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         });
 
         /* RESTRINGE PERMISSÕES PARA CRIAR OPORTUNIDADES */
-        $app->hook('POST(opportunity.<<index|generateopportunity>>):before', function() use ($app) {
-            /**
-             * @var Controllers\Opportunity $this
-             */
-            if (!$app->user->is('admin')) {
-                $this->errorJson(i::__('Permissão negada'), 403);
-            }
-        });
+        // $app->hook('POST(opportunity.<<index|generateopportunity>>):before', function() use ($app) {
+        //     /**
+        //      * @var Controllers\Opportunity $this
+        //      */
+        //     if (!$app->user->is('admin')) {
+        //         $this->errorJson(i::__('Permissão negada'), 403);
+        //     }
+        // });
 
         /* RESTRINGE VISUALIZAÇÃO DO BOTÃO DE CRIAÇÃO DE OPORTUNIDADE */
-        $app->hook('component(create-opportunity):params', function (&$component_name) use ($app) {
-            if (!$app->user->is('admin')) {
-                $component_name = 'mc-empty';
-            }
-        });
+        // $app->hook('component(create-opportunity):params', function (&$component_name) use ($app) {
+        //     if (!$app->user->is('admin')) {
+        //         $component_name = 'mc-empty';
+        //     }
+        // });
 
         /* FILTRA A API DE AGENTES */
         $app->hook('ApiQuery(Agent).joins', function(&$joins) use($app) {
