@@ -34,5 +34,12 @@ return [
 
     'logo.image' => 'img/logo-som.png',
 
-    'text:home-opportunities.description' => i::__('Cadastre-se e participe de oportunidades'),
+    // i::__() aqui roda antes de Theme::_init() carregar o catálogo do
+    // tema (mesmo motivo documentado em conf-base.php), por isso a
+    // tradução é resolvida direto pelo locale.
+    'text:home-opportunities.description' => [
+        'pt_BR' => 'Cadastre-se e participe de oportunidades',
+        'es_ES' => 'Regístrese y participe de oportunidades',
+        'en_US' => 'Sign up and take part in opportunities',
+    ][i::get_locale()] ?? 'Cadastre-se e participe de oportunidades',
 ];
