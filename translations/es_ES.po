@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SOM theme\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+
+msgid "Deseja inserir uma ocorrência para o seu Evento?"
+msgstr "¿Desea insertar una ocurrencia para su Agenda?"
+
+msgid "seu novo evento"
+msgstr "su nueva agenda"
+
+msgid "do evento"
+msgstr "de la agenda"
+
+msgid "do seu evento"
+msgstr "de su agenda"
+
+msgid "sobre o evento"
+msgstr "sobre la agenda"
+
+msgid "Adicione uma Descrição curta para o Evento"
+msgstr "Agregue una Descripción corta para la Agenda"
+
+msgid "agentes"
+msgstr "Perfiles"
+
+msgid "agente"
+msgstr "Perfil"
+
+msgid "Meus Eventos"
+msgstr "Mis Agendas"
+
+msgid "eventos"
+msgstr "Agendas"
+
+msgid "evento"
+msgstr "Agenda"
+
+msgid "Meus agendas"
+msgstr "Mis agendas"
+
+msgid "seus agendas"
+msgstr "sus agendas"
+
+msgid "vinculado ao agenda"
+msgstr "vinculado a la agenda"
+
+msgid "Informações públicas do Agenda"
+msgstr "Información pública de la Agenda"
+
+msgid "Este é um espaço para você apresentar melhor o seu Agenda. Adicione documentos, links, vídeos e imagens."
+msgstr "Este es un espacio para que usted presente mejor su Agenda. Agregue documentos, enlaces, videos e imágenes."
+
+msgid "Inserir ocorrência no agenda"
+msgstr "Insertar ocurrencia en la agenda"
+
+msgid "Vincular um espaço para o agenda"
+msgstr "Vincular un espacio para la agenda"
+
+msgid "Quando o agenda ocorrerá"
+msgstr "Cuándo ocurrirá la agenda"
+
+msgid "O agenda"
+msgstr "La agenda"
+
+msgid "Pessoa portadora de deficiência"
+msgstr "Persona con discapacidad"
+
+msgid "Localização pública"
+msgstr "Aparezca en el Mapa"
+
+msgid "Editais e oportunidades"
+msgstr "Oportunidades"
+
+msgid "editais e oportunidade"
+msgstr "oportunidades"
+
+msgid "Oportunidades do momento"
+msgstr "Oportunidades abiertas"
+
+msgid "Aqui você encontra as informações da cultura de sua região!"
+msgstr "Aquí encuentra la información cultural de su región"
+
+msgid "projetos"
+msgstr "Festivales"
+
+msgid "projeto"
+msgstr "Festival"
+
+msgid "Meus espaços"
+msgstr "Mis casas"
+
+msgid "seus espaços culturais"
+msgstr "sus casas de conciertos"
+
+msgid "espaços relacionados"
+msgstr "casas relacionadas"
+
+msgid "um dos espaços"
+msgstr "una de las casas"
+
+msgid "Os espaços"
+msgstr "Las casas"
+
+msgid "os Espaços"
+msgstr "las Casas"
+
+msgid "Espaços"
+msgstr "Casas"
+
+msgid "espaços"
+msgstr "casas"
+
+msgid "Espaço Criado"
+msgstr "Casa Creada"
+
+msgid "Espaço criado"
+msgstr "Casa creada"
+
+msgid "Espaço é obrigatório"
+msgstr "Casa es obligatoria"
+
+msgid "Espaço não informado"
+msgstr "Casa no informada"
+
+msgid "espaço selecionado"
+msgstr "casa seleccionada"
+
+msgid "Espaço Vinculado"
+msgstr "Casa Vinculada"
+
+msgid "Espaço vinculado"
+msgstr "Casa vinculada"
+
+msgid "espaço vinculado"
+msgstr "casa vinculada"
+
+msgid "Nenhum espaço"
+msgstr "Ninguna casa"
+
+msgid "Este espaço está arquivado"
+msgstr "Esta casa está archivada"
+
+msgid "Este espaço"
+msgstr "Esta casa"
+
+msgid "este espaço"
+msgstr "esta casa"
+
+msgid "o espaço relacionado"
+msgstr "la casa relacionada"
+
+msgid "o seu Espaço"
+msgstr "su Casa"
+
+msgid "o seu espaço"
+msgstr "su casa"
+
+msgid "seu novo espaço"
+msgstr "su nueva casa"
+
+msgid "um novo espaço"
+msgstr "una nueva casa"
+
+msgid "um espaço"
+msgstr "una casa"
+
+msgid "O espaço"
+msgstr "La casa"
+
+msgid "o Espaço"
+msgstr "la Casa"
+
+msgid "o espaço"
+msgstr "la casa"
+
+msgid "Espaço"
+msgstr "Casa"
+
+msgid "espaço"
+msgstr "casa"
+
+msgid "Cadastre seu casa e faça parte do nosso mapa."
+msgstr "Registre su espacio y forme parte de nuestro mapa."
+

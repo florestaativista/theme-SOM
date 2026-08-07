@@ -69,6 +69,8 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
     function _init() {
         parent::_init();
 
+        i::load_textdomain('default', __DIR__ . '/translations', i::get_locale());
+
         $self = $this;
         $app = App::i();
 
@@ -449,13 +451,49 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
         }
     }
 
+    /**
+     * i::__() aqui resolve contra o catálogo do core (carregado em
+     * load-translation.php), que já traduz a maior parte destes nomes.
+     * Os termos abaixo são exclusivos do SOM e não existem no core, então
+     * i::__() nunca os traduziria (ver themes/FlorestaAtivista/conf-base.php
+     * para o motivo: register()/getVisible*Types() roda antes de
+     * Theme::_init() carregar translations/{locale}.po do tema).
+     */
+    private static $missingI18n = [
+        'Aldeia' => ['es_ES' => 'Aldea', 'en_US' => 'Village'],
+        'Audição' => ['es_ES' => 'Audición', 'en_US' => 'Audition'],
+        'Bar' => ['es_ES' => 'Bar', 'en_US' => 'Bar'],
+        'Casa Coletiva' => ['es_ES' => 'Casa Colectiva', 'en_US' => 'Collective house'],
+        'Casa de shows' => ['es_ES' => 'Casa de conciertos', 'en_US' => 'Concert venue'],
+        'Concurso de bandas' => ['es_ES' => 'Concurso de bandas', 'en_US' => 'Band contest'],
+        'Conferência' => ['es_ES' => 'Conferencia', 'en_US' => 'Conference'],
+        'Festa' => ['es_ES' => 'Fiesta', 'en_US' => 'Party'],
+        'Gravação Estúdio' => ['es_ES' => 'Grabación en estudio', 'en_US' => 'Studio recording'],
+        'Gravação de Clipe' => ['es_ES' => 'Grabación de videoclip', 'en_US' => 'Music video recording'],
+        'Hostel' => ['es_ES' => 'Hostel', 'en_US' => 'Hostel'],
+        'Hotel' => ['es_ES' => 'Hotel', 'en_US' => 'Hotel'],
+        'Jam' => ['es_ES' => 'Jam', 'en_US' => 'Jam'],
+        'Live' => ['es_ES' => 'Live', 'en_US' => 'Livestream'],
+        'Plataforma Digital' => ['es_ES' => 'Plataforma Digital', 'en_US' => 'Digital platform'],
+        'Pousada' => ['es_ES' => 'Posada', 'en_US' => 'Inn'],
+        'Residência artística' => ['es_ES' => 'Residencia artística', 'en_US' => 'Artistic residency'],
+        'Roda' => ['es_ES' => 'Rueda', 'en_US' => 'Circle'],
+        'Show' => ['es_ES' => 'Show', 'en_US' => 'Show'],
+        'Teatro de Arena' => ['es_ES' => 'Teatro de Arena', 'en_US' => 'Arena theater'],
+        'Turnê' => ['es_ES' => 'Gira', 'en_US' => 'Tour'],
+    ];
+
+    private static function mtr(string $pt): string {
+        return self::$missingI18n[$pt][i::get_locale()] ?? i::__($pt);
+    }
+
     public function getVisibleSpaceTypes(): array {
         return [
-            i::__('Aldeia'),
-            i::__('Bar'),
-            i::__('Casa Coletiva'),
+            self::mtr('Aldeia'),
+            self::mtr('Bar'),
+            self::mtr('Casa Coletiva'),
             i::__('Casa de espetáculo'),
-            i::__('Casa de shows'),
+            self::mtr('Casa de shows'),
             i::__('Centro Comunitário'),
             i::__('Centro Cultural Privado'),
             i::__('Centro Cultural Público'),
@@ -463,46 +501,46 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
             i::__('Concha acústica'),
             i::__('Espaço para Eventos'),
             i::__('Estúdio'),
-            i::__('Hostel'),
-            i::__('Hotel'),
+            self::mtr('Hostel'),
+            self::mtr('Hotel'),
             i::__('Museu Privado'),
             i::__('Museu Público'),
             i::__('Outros Equipamentos Culturais'),
             i::__('Palco de Rua'),
-            i::__('Plataforma Digital'),
+            self::mtr('Plataforma Digital'),
             i::__('Ponto de Cultura'),
-            i::__('Pousada'),
+            self::mtr('Pousada'),
             i::__('Praça dos esportes e da cultura'),
             i::__('Sala de cinema'),
             i::__('Teatro'),
-            i::__('Teatro de Arena'),
+            self::mtr('Teatro de Arena'),
         ];
     }
 
     public function getVisibleOpportunityTypes(): array {
         return [
-            i::__('Audição'),
-            i::__('Concurso de bandas'),
-            i::__('Conferência'),
+            self::mtr('Audição'),
+            self::mtr('Concurso de bandas'),
+            self::mtr('Conferência'),
             i::__('Curso'),
             i::__('Encontro'),
             i::__('Feira'),
-            i::__('Festa'),
+            self::mtr('Festa'),
             i::__('Festa Popular'),
             i::__('Festa Religiosa'),
             i::__('Festival'),
-            i::__('Gravação de Clipe'),
-            i::__('Gravação Estúdio'),
-            i::__('Jam'),
-            i::__('Live'),
+            self::mtr('Gravação de Clipe'),
+            self::mtr('Gravação Estúdio'),
+            self::mtr('Jam'),
+            self::mtr('Live'),
             i::__('Oficina'),
-            i::__('Residência artística'),
-            i::__('Roda'),
+            self::mtr('Residência artística'),
+            self::mtr('Roda'),
             i::__('Sarau'),
             i::__('Seminário'),
-            i::__('Show'),
+            self::mtr('Show'),
             i::__('Slam'),
-            i::__('Turnê'),
+            self::mtr('Turnê'),
         ];
     }
 

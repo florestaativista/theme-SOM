@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SOM theme\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
+
+msgid "Deseja inserir uma ocorrência para o seu Evento?"
+msgstr "Do you want to insert an occurrence for your Agenda?"
+
+msgid "seu novo evento"
+msgstr "your new agenda"
+
+msgid "do evento"
+msgstr "of the agenda"
+
+msgid "do seu evento"
+msgstr "of your agenda"
+
+msgid "sobre o evento"
+msgstr "about the agenda"
+
+msgid "Adicione uma Descrição curta para o Evento"
+msgstr "Add a short Description for the Agenda"
+
+msgid "agentes"
+msgstr "Profiles"
+
+msgid "agente"
+msgstr "Profile"
+
+msgid "Meus Eventos"
+msgstr "My Agendas"
+
+msgid "eventos"
+msgstr "Agendas"
+
+msgid "evento"
+msgstr "Agenda"
+
+msgid "Meus agendas"
+msgstr "My agendas"
+
+msgid "seus agendas"
+msgstr "your agendas"
+
+msgid "vinculado ao agenda"
+msgstr "linked to the agenda"
+
+msgid "Informações públicas do Agenda"
+msgstr "Public information of the Agenda"
+
+msgid "Este é um espaço para você apresentar melhor o seu Agenda. Adicione documentos, links, vídeos e imagens."
+msgstr "This is a space for you to better present your Agenda. Add documents, links, videos and images."
+
+msgid "Inserir ocorrência no agenda"
+msgstr "Insert occurrence in the agenda"
+
+msgid "Vincular um espaço para o agenda"
+msgstr "Link a space to the agenda"
+
+msgid "Quando o agenda ocorrerá"
+msgstr "When the agenda will occur"
+
+msgid "O agenda"
+msgstr "The agenda"
+
+msgid "Pessoa portadora de deficiência"
+msgstr "Person with disability"
+
+msgid "Localização pública"
+msgstr "Show up on the Map"
+
+msgid "Editais e oportunidades"
+msgstr "Opportunities"
+
+msgid "editais e oportunidade"
+msgstr "opportunities"
+
+msgid "Oportunidades do momento"
+msgstr "Open Opportunities"
+
+msgid "Aqui você encontra as informações da cultura de sua região!"
+msgstr "Here you find the cultural information of your region"
+
+msgid "projetos"
+msgstr "Festivals"
+
+msgid "projeto"
+msgstr "Festival"
+
+msgid "Meus espaços"
+msgstr "My venues"
+
+msgid "seus espaços culturais"
+msgstr "your venues"
+
+msgid "espaços relacionados"
+msgstr "related venues"
+
+msgid "um dos espaços"
+msgstr "one of the venues"
+
+msgid "Os espaços"
+msgstr "The venues"
+
+msgid "os Espaços"
+msgstr "the Venues"
+
+msgid "Espaços"
+msgstr "Venues"
+
+msgid "espaços"
+msgstr "venues"
+
+msgid "Espaço Criado"
+msgstr "Venue Created"
+
+msgid "Espaço criado"
+msgstr "Venue created"
+
+msgid "Espaço é obrigatório"
+msgstr "Venue is required"
+
+msgid "Espaço não informado"
+msgstr "Venue not provided"
+
+msgid "espaço selecionado"
+msgstr "selected venue"
+
+msgid "Espaço Vinculado"
+msgstr "Venue Linked"
+
+msgid "Espaço vinculado"
+msgstr "Venue linked"
+
+msgid "espaço vinculado"
+msgstr "venue linked"
+
+msgid "Nenhum espaço"
+msgstr "No venue"
+
+msgid "Este espaço está arquivado"
+msgstr "This venue is archived"
+
+msgid "Este espaço"
+msgstr "This venue"
+
+msgid "este espaço"
+msgstr "this venue"
+
+msgid "o espaço relacionado"
+msgstr "the related venue"
+
+msgid "o seu Espaço"
+msgstr "your Venue"
+
+msgid "o seu espaço"
+msgstr "your venue"
+
+msgid "seu novo espaço"
+msgstr "your new venue"
+
+msgid "um novo espaço"
+msgstr "a new venue"
+
+msgid "um espaço"
+msgstr "a venue"
+
+msgid "O espaço"
+msgstr "The venue"
+
+msgid "o Espaço"
+msgstr "the Venue"
+
+msgid "o espaço"
+msgstr "the venue"
+
+msgid "Espaço"
+msgstr "Venue"
+
+msgid "espaço"
+msgstr "venue"
+
+msgid "Cadastre seu casa e faça parte do nosso mapa."
+msgstr "Register your space and be part of our map."
+
